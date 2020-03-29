@@ -15,7 +15,6 @@
 class UserSeeder {
   async run () {
     const User = use('App/Models/User');
-    // console.log(await User.getCount());
     if (!await User.getCount()) {
       const sampleUser = new User();
       sampleUser.username = 'name';
