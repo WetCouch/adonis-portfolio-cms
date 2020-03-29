@@ -17,9 +17,12 @@
 const Route = use('Route');
 
 Route.on('/').render('welcome');
-Route.get('login', 'UserController.showLogin');
-Route.post('login', 'UserController.login');
-Route.get('panel', 'UserController.showPanel');
-Route.get('logout', 'UserController.logout');
-Route.get('users/:id', 'UserController.showUser');
-Route.post('users/:id/change-password', 'UserController.changePassword');
+
+Route.get('login', 'LoginController.showLogin');
+Route.get('logout', 'LoginController.logout');
+Route.post('login', 'LoginController.login');
+
+Route.get('panel', 'UserController.showPanel').middleware(['customAuth']);
+
+Route.get('users/:id', 'UserController.showUser').middleware(['customAuth']);
+Route.post('users/:id/change-password', 'UserController.changePassword').middleware(['customAuth']);
