@@ -11,20 +11,19 @@
 */
 
 /** @type {import('@adonisjs/lucid/src/Factory')} */
-const Hash = use('Hash');
 
 class UserSeeder {
   async run () {
     const User = use('App/Models/User');
-
+    // console.log(await User.getCount());
     if (!await User.getCount()) {
       const sampleUser = new User();
       sampleUser.username = 'name';
       sampleUser.email = 'email@email.com';
-      sampleUser.password = await Hash.make('admin');
+      sampleUser.password = 'admin';
       await sampleUser.save();
     }
   }
 }
 
-module.exports = UserSeeder
+module.exports = UserSeeder;

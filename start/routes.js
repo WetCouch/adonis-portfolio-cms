@@ -18,7 +18,8 @@ const Route = use('Route');
 
 Route.on('/').render('welcome');
 Route.on('/login').render('admin/login');
-// Route.post('login', UserController.login);
-// Route
-//   .get('test', UserController.show)
-//   .middleware(auth);
+Route.post('login', 'UserController.login');
+Route
+  .get('test', 'UserController.show');
+  // .middleware('auth');
+Route.get('logout', 'UserController.logout');
