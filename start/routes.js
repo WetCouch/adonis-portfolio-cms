@@ -21,3 +21,5 @@ Route.get('login', 'UserController.showLogin');
 Route.post('login', 'UserController.login');
 Route.get('panel', 'UserController.showPanel');
 Route.get('logout', 'UserController.logout');
+Route.get('users/:id', 'UserController.showUser');
+Route.post('users/:id/change-password', 'UserController.changePassword');

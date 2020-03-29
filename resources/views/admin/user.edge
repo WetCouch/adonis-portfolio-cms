@@ -1,0 +1,14 @@
+<h1>{{user.username}}</h1>
+
+<h2>Change password</h2>
+<form action="/users/{{user.id}}/change-password" method="POST">
+  <label for="password">Password</label>
+  <input id="password" name="password" type="password">
+  <label for="repeat-password">Repeat password</label>
+  <input id="repeat-password" name="repeatPassword" type="password">
+  <input type="submit">
+</form>
+
+@if(changedStatus)
+  <h2>{{changedStatus}}</h2>
+@endif
