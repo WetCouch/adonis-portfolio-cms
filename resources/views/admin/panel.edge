@@ -1,9 +1,20 @@
 <h1>Panel</h1>
 
+<h3>Users</h3>
 <ul>
   @each(user in users)
-  <li><a href="/users/{{user.id}}">{{ user.email }}</a></li>
+  <li><a href="/panel/users/{{user.id}}">{{ user.email }}</a></li>
   @endeach
 </ul>
+
+<h3>Posts</h3>
+<div>
+  @each(post in posts)
+  <h4>{{ post.title }}</h4>
+  <h6>{{ post.description }}</h6>
+  <p>{{ post.body }}</p>
+  @endeach
+</div>
+<a href="/panel/createPost">Create new post</a>
 
 <a href="/logout">Logout</a>

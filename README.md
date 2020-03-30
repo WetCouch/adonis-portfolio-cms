@@ -1,6 +1,6 @@
 # Adonis fullstack CMS
 
-This is a fullstack boilerplate for a CMS with a blog and portfolio based on gallery based on AdonisJs, it comes pre-configured with:
+This is a fullstack boilerplate for a CMS with a blog and portfolio / gallery based on AdonisJS, it comes pre-configured with:
 
 1. Bodyparser
 2. Session
@@ -13,11 +13,11 @@ This is a fullstack boilerplate for a CMS with a blog and portfolio based on gal
 
 ## Setup
 
-Project uses Node v12.12.0
+Project uses Node v12.12.0 and Adonis v4.1
 
 Clone the repo and run `npm install`.
 
-Set up the followign environmental variables, as in the example:
+Set up the following environmental variables, as in the example:
 
 ```
 HOST=127.0.0.1

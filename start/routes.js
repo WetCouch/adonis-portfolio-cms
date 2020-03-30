@@ -22,7 +22,10 @@ Route.get('login', 'LoginController.showLogin');
 Route.get('logout', 'LoginController.logout');
 Route.post('login', 'LoginController.login');
 
-Route.get('panel', 'UserController.showPanel').middleware(['customAuth']);
+Route.get('panel', 'PanelController.showPanel').middleware(['customAuth']);
 
-Route.get('users/:id', 'UserController.showUser').middleware(['customAuth']);
-Route.post('users/:id/change-password', 'UserController.changePassword').middleware(['customAuth']);
+Route.get('panel/users/:id', 'UserController.showUser').middleware(['customAuth']);
+Route.post('panel/users/:id/change-password', 'UserController.changePassword').middleware(['customAuth']);
+
+Route.on('/panel/createPost').render('admin.createPost').middleware(['customAuth']);
+Route.post('/panel/createPost', 'PostController.createPost').middleware(['customAuth']);

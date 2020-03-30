@@ -3,15 +3,6 @@
 const User = use('App/Models/User');
 
 class UserController {
-  async showPanel ({ view }) {
-    try {
-      const users = (await User.all()).toJSON();
-      return view.render('admin.panel', {users: users});
-    } catch (err) {
-      return err;
-    }
-  }
-
   async showUser ({ params, view }) {
     try {
       const user = (await User.find(params.id)).toJSON();
