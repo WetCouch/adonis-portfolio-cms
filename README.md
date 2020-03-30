@@ -1,6 +1,6 @@
-# Adonis fullstack application
+# Adonis fullstack CMS
 
-This is the fullstack boilerplate for AdonisJs, it comes pre-configured with.
+This is a fullstack boilerplate for a CMS with a blog and portfolio based on gallery based on AdonisJs, it comes pre-configured with:
 
 1. Bodyparser
 2. Session
@@ -13,19 +13,45 @@ This is the fullstack boilerplate for AdonisJs, it comes pre-configured with.
 
 ## Setup
 
-Use the adonis command to install the blueprint
+Project uses Node v12.12.0
 
-```bash
-adonis new yardstick
+Clone the repo and run `npm install`.
+
+Set up the followign environmental variables, as in the example:
+
+```
+HOST=127.0.0.1
+PORT=3333
+NODE_ENV=development
+APP_URL=http://${HOST}:${PORT}
+CACHE_VIEWS=false
+APP_KEY=app-key
+DB_CONNECTION=pg
+DB_HOST=127.0.0.1
+DB_PORT=5432
+DB_USER=user
+DB_PASSWORD=
+DB_DATABASE=database
+SESSION_DRIVER=cookie
+HASH_DRIVER=bcrypt
 ```
 
-or manually clone the repo and then run `npm install`.
 
 
 ### Migrations
 
 Run the following command to run startup migrations.
 
-```js
+```bash
 adonis migration:run
+```
+
+
+### Sample User
+
+Run the following command in order to create first sample user and log in to admin panel, with these credentials:
+name: `name`, password: `admin`, email: `email@email.com`.
+
+```bash
+adonis seed
 ```
