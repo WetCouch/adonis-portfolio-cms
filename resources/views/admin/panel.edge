@@ -5,14 +5,14 @@
   @each(user in users)
   <li><a href="/panel/users/{{user.id}}">{{ user.email }}</a></li>
   @endeach
-</ul>
+</ul>z
 
 <h3>Posts</h3>
 <div>
   @each(post in posts)
-  <h4>{{ post.title }}</h4>
-  <h6>{{ post.description }}</h6>
-  <p>{{ post.body }}</p>
+  <a href="/panel/posts/{{post.id}}"><h3>{{ post.title }}</h3></a>
+  <h4>{{ post.description }}</h4>
+  <div>{{{ post.body }}}</div>
   @endeach
 </div>
 <a href="/panel/createPost">Create new post</a>

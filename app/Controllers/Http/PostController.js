@@ -18,6 +18,31 @@ class PostController {
       return err;
     }
   }
+
+  async showPost ({ params, view }) {
+    try {
+      const post = (await Post.find(params.id)).toJSON();
+      return view.render('admin.editPost', {post: post});
+    } catch (err) {
+      return err;
+    }
+  }
+
+  async editPost ({ params, response, request }) {
+    const { title, description, body } = request.all();
+
+    try {
+      const post = await Post.find(params.id);
+      post.title = title;
+      post.description = description;
+      post.body = body;
+      await post.save();
+
+      response.route('/panel')
+    } catch (err) {
+      return err;
+    }
+  }
 }
 
 module.exports = PostController;

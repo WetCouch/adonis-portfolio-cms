@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 /*
 |--------------------------------------------------------------------------
@@ -22,10 +22,14 @@ Route.get('login', 'LoginController.showLogin');
 Route.get('logout', 'LoginController.logout');
 Route.post('login', 'LoginController.login');
 
-Route.get('panel', 'PanelController.showPanel').middleware(['customAuth']);
+Route.group(() => {
+  Route.get('panel', 'PanelController.showPanel');
 
-Route.get('panel/users/:id', 'UserController.showUser').middleware(['customAuth']);
-Route.post('panel/users/:id/change-password', 'UserController.changePassword').middleware(['customAuth']);
+  Route.get('panel/users/:id', 'UserController.showUser');
+  Route.post('panel/users/:id/change-password', 'UserController.changePassword');
 
-Route.on('/panel/createPost').render('admin.createPost').middleware(['customAuth']);
-Route.post('/panel/createPost', 'PostController.createPost').middleware(['customAuth']);
+  Route.on('/panel/createPost').render('admin.createPost');
+  Route.post('/panel/createPost', 'PostController.createPost');
+  Route.get('/panel/posts/:id', 'PostController.showPost');
+  Route.post('/panel/posts/:id/edit', 'PostController.editPost');
+}).middleware(['customAuth']);

@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 
-<h1>Create new post</h1>
-
-<form action="/panel/createPost" method="POST">
+<form action="/panel/posts/{{post.id}}/edit" method="POST">
   <label >Title</label>
-  <input type="text" name="title">
+  <input type="text" name="title" value="{{post.title}}">
   <label >Description</label>
-  <input type="text" name="description">
+  <input type="text" name="description" value="{{post.description}}">
   <label >Body</label>
-  <textarea name="body" id="test" cols="30" rows="10"></textarea>
+  <textarea name="body" id="test" cols="30" rows="10">{{post.body}}</textarea>
   <input type="submit">
 </form>
 

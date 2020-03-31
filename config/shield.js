@@ -28,6 +28,7 @@ module.exports = {
     |
     */
     directives: {
+      scriptSrc: ['self', '@nonce', 'cdnjs.cloudflare.com']
     },
     /*
     |--------------------------------------------------------------------------
