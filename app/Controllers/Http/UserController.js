@@ -28,6 +28,16 @@ class UserController {
       return err;
     }
   }
+
+  async deleteUser ({ params, response }) {
+    try {
+      const user = await User.find(params.id);
+      await user.delete();
+      response.route('/panel');
+    } catch (err) {
+      return err;
+    }
+  }
 }
 
 module.exports = UserController;

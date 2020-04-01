@@ -1,0 +1,15 @@
+<form action="{{url}}" method="POST">
+  <label for="email">Username</label>
+  <input id="username" name="username" type="text">
+  <label for="email">Mail</label>
+  <input id="email" name="email" type="email">
+  <label for="password">Password</label>
+  <input id="password" name="password" type="password">
+  <label for="repeat-password">Repeat Password</label>
+  <input id="repeat-password" name="repeatPassword" type="password">
+  <input type="submit">
+</form>
+
+@if(passwordStatus)
+<p>{{passwordStatus}}</p>
+@endif

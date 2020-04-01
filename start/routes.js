@@ -19,14 +19,24 @@ const Route = use('Route');
 Route.on('/').render('welcome');
 
 Route.get('login', 'LoginController.showLogin');
-Route.get('logout', 'LoginController.logout');
 Route.post('login', 'LoginController.login');
 
 Route.group(() => {
-  Route.get('panel', 'PanelController.showPanel');
+  Route.on('/signup').render('admin.createUser');
+  Route.post('/signup', 'LoginController.signup');
+}).middleware(['signupPermission']);
 
-  Route.get('panel/users/:id', 'UserController.showUser');
-  Route.post('panel/users/:id/change-password', 'UserController.changePassword');
+Route.get('logout', 'LoginController.logout');
+
+Route.group(() => {
+  Route.get('panel', 'PanelController.showPanel');
+  Route.get('/panel/signupPermission', 'PanelController.changeSignupPermission');
+  Route.on('/panel/createUser').render('admin.createUser');
+  Route.post('/panel/createUser', 'LoginController.signup');
+
+  Route.get('/panel/users/:id', 'UserController.showUser');
+  Route.post('/panel/users/:id/change-password', 'UserController.changePassword');
+  Route.get('/panel/users/:id/delete-user', 'UserController.deleteUser');
 
   Route.on('/panel/createPost').render('admin.createPost');
   Route.post('/panel/createPost', 'PostController.createPost');
