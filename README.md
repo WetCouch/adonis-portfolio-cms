@@ -55,3 +55,10 @@ name: `name`, password: `admin`, email: `email@email.com`.
 ```bash
 adonis seed
 ```
+
+### Run locally in dev mode
+
+In order to run the webpack watcher and adonis server use 
+```bash
+npm run dev
+```

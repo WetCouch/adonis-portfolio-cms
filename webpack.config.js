@@ -1,13 +1,20 @@
 const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const extractSass = new MiniCssExtractPlugin({
   filename: 'public/app.css'
 });
 
+const copyFiles = new CopyWebpackPlugin([
+  {
+    from:'resources/assets/img',
+    to:'public/img'
+  }
+]);
+
 function sassRules () {
-  return [
-    {
+  return {
       test: /\.(sass|scss)$/,
       exclude: /node_modules/,
       use: [
@@ -16,7 +23,6 @@ function sassRules () {
         'sass-loader'
       ],
     }
-  ]
 }
 
 module.exports = {
@@ -29,9 +35,12 @@ module.exports = {
     path: path.resolve(__dirname)
   },
   module: {
-    rules: sassRules()
+    rules: [
+      sassRules()
+    ]
   },
   plugins: [
-    extractSass
+    extractSass,
+    copyFiles
   ]
 };
