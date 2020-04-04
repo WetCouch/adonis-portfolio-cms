@@ -1,0 +1,45 @@
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.space-around {
+  justify-content: space-around;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.self-end {
+  align-self: flex-end;
+}
+
+.grow-1 {
+  flex-grow: 1;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+@include mobile() {
+  .mobile-hide {
+      display: none;
+  }
+
+  .mobile-flex-column {
+    flex-direction: column;
+  }
+}

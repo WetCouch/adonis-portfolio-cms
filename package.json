@@ -7,6 +7,7 @@
   "scripts": {
     "start": "node server.js",
     "test": "node ace test",
+    "build": "./node_modules/.bin/webpack",
     "dev": "concurrently \"./node_modules/.bin/webpack --watch\" \"adonis serve --dev\""
   },
   "keywords": [

@@ -1,0 +1,21 @@
+button {
+  background-color: $primary;
+  border: none;
+  border-radius: 20px;
+  padding: $space-2 $space-3;
+  cursor: pointer;
+  transition: transform .2s;
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.overlay {
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: rgba($primary, 0.1);
+  z-index: 1;
+}

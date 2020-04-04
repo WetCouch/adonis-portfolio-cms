@@ -1,0 +1,50 @@
+html, body {
+  font-family: 'Lato', sans-serif;
+  font-style: normal;
+  color: $gray-100;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 40px;
+  line-height: 48px;
+  font-weight: 700;
+  @include mobile() {
+    font-size: 32px;
+    line-height: 48px;
+  }
+}
+
+h2 {
+  font-size: 32px;
+  line-height: 48px;
+  @include mobile() {
+    font-size: 24px;
+    line-height: 36px;
+  }
+}
+
+p {
+  font-size: 20px;
+  line-height: 24px;
+}
+
+button {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 16px;
+  color: $gray-0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+@include mobile() {
+  .mobile-text-center {
+    text-align: center;
+  }
+}
