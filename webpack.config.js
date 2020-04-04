@@ -8,8 +8,8 @@ const extractSass = new MiniCssExtractPlugin({
 
 const copyFiles = new CopyWebpackPlugin([
   {
-    from:'resources/assets/img',
-    to:'public/img'
+    from:'resources/assets',
+    to:'public'
   }
 ]);
 
@@ -28,7 +28,7 @@ function sassRules () {
 module.exports = {
   mode: 'development',
   entry: [
-    './resources/assets/sass/app.scss'
+    './resources/sass/app.scss'
   ],
   output: {
     filename: 'public/app.js',
