@@ -14,3 +14,6 @@ database/development.sqlite
 # VSCode & Webstorm history directories
 .history
 .idea
+
+#Public assets compiled by webpack
+public
