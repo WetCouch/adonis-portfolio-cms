@@ -19,3 +19,29 @@ button {
   background-color: rgba($primary, 0.1);
   z-index: 1;
 }
+
+nav {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  ul {
+    width: 50%;
+    margin-left: auto;
+    display: flex;
+    justify-content: center;
+    padding: $space-4 0;
+    li {
+      padding: 0 $space-4;
+
+      &:nth-child(-n+3) {
+        border-right: 1px solid $gray-100;
+      }
+
+      a {
+        color: $gray-100;
+      }
+    }
+  }
+}
