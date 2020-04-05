@@ -19,7 +19,7 @@ h1 {
 }
 
 h2 {
-  font-size: 32px;
+  font-size: 40px;
   line-height: 48px;
   @include mobile() {
     font-size: 24px;
@@ -27,17 +27,30 @@ h2 {
   }
 }
 
-p {
+h3 {
   font-size: 20px;
   line-height: 24px;
+}
+
+p {
+  font-size: 20px;
+  line-height: 35px;
+}
+
+a {
+  color: $primary;
 }
 
 button {
   font-weight: 700;
   font-size: 12px;
   line-height: 16px;
-  color: $gray-0;
+  color: $white;
   letter-spacing: 1px;
+}
+
+.color-primary {
+  color: $primary;
 }
 
 .text-center {
