@@ -1,7 +1,7 @@
 .fade-in {
-  transform: translateY($space-6);
+  transform: translateY(-$space-6);
   opacity: 0;
-  transition: transform .5s ease-out, opacity .5s ease-out;
+  transition: transform .45s ease-out, opacity .45s ease-out;
 
   &--active {
     transform: translateY(0);
