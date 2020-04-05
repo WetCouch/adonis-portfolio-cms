@@ -2,6 +2,8 @@
   display: block;
   width: 36px;
   height: 36px;
+  background-repeat: no-repeat;
+  background-position: center;
   background-image: url("/icons/dribbble.svg");
 }
 
@@ -9,6 +11,8 @@
   display: block;
   width: 36px;
   height: 36px;
+  background-repeat: no-repeat;
+  background-position: center;
   background-image: url("/icons/instagram.svg");
 }
 
@@ -16,6 +20,8 @@
   display: block;
   width: 36px;
   height: 36px;
+  background-repeat: no-repeat;
+  background-position: center;
   background-image: url("/icons/linkedin.svg");
 }
 
@@ -23,7 +29,27 @@
   display: block;
   width: 36px;
   height: 36px;
+  background-repeat: no-repeat;
+  background-position: center;
   background-image: url("/icons/github.svg");
+}
+
+.icon-code {
+  display: block;
+  width: 64px;
+  height:64px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("/icons/code.svg");
+}
+
+.icon-pen {
+  display: block;
+  width: 64px;
+  height: 64px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("/icons/pen.svg");
 }
 
 
