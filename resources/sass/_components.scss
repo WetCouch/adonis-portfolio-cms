@@ -76,6 +76,9 @@
   background-color: $primary;
   border: none;
   height: 3px;
+  &--white {
+    background-color: $white;
+  }
 }
 
 .profiles {

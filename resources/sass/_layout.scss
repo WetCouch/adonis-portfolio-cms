@@ -18,6 +18,15 @@ header {
 
 section {
   padding: 124px;
-  min-height: 100vh;
   background-color: $white;
+}
+
+.bg-primary {
+  background-color: $primary;
+}
+
+.layout-tech__icon {
+  position: absolute;
+  left: 86px;
+  top: 64px;
 }
