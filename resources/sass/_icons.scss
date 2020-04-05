@@ -1,25 +1,32 @@
-//.icon-scalaric-logo {
-//  display: inline-block;
-//  &:before {
-//    content: url($baseurl + "/assets/icons/scalaric-logo.svg");
-//  }
-//}
-//
-//.icon-arrow-right {
-//  display: inline-block;
-//  &:before {
-//    content: url($baseurl + "/assets/icons/arrow.svg");
-//  }
-//}
-//
-//.icon-arrow-down {
-//  display: inline-block;
-//  transform: rotate(90deg);
-//  &:before {
-//    content: url($baseurl + "/assets/icons/arrow.svg");
-//  }
-//}
-//
+.icon-dribbble {
+  display: block;
+  width: 36px;
+  height: 36px;
+  background-image: url("/icons/dribbble.svg");
+}
+
+.icon-instagram {
+  display: block;
+  width: 36px;
+  height: 36px;
+  background-image: url("/icons/instagram.svg");
+}
+
+.icon-linkedin {
+  display: block;
+  width: 36px;
+  height: 36px;
+  background-image: url("/icons/linkedin.svg");
+}
+
+.icon-github {
+  display: block;
+  width: 36px;
+  height: 36px;
+  background-image: url("/icons/github.svg");
+}
+
+
 //.icon-arrow-top {
 //  display: inline-block;
 //  transform: rotate(270deg);
