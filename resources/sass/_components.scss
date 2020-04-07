@@ -53,6 +53,14 @@
     justify-content: center;
     padding: $space-4 0;
     z-index: 2;
+
+    &:hover {
+      pointer-events: none;
+
+      a {
+        color: $gray-60;
+      }
+    }
   }
 
   &__link {
@@ -65,8 +73,10 @@
     a {
       color: $gray-100;
       transition: color .2s;
+      pointer-events: auto;
+
       &:hover {
-        color: $gray-60;
+        color: $gray-100;
       }
     }
   }
