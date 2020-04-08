@@ -28,6 +28,11 @@ h2 {
 }
 
 h3 {
+  font-size: 30px;
+  line-height: 36px;
+}
+
+h4 {
   font-size: 20px;
   line-height: 24px;
 }
@@ -59,6 +64,10 @@ button {
 
 .text-center {
   text-align: center;
+}
+
+.fw-bold {
+  font-weight: $fw-bold;
 }
 
 @include mobile() {

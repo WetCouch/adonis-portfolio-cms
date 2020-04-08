@@ -1,6 +1,5 @@
 * {
   box-sizing: border-box;
-  position: relative;
 }
 
 img {
@@ -19,6 +18,7 @@ header {
 section {
   padding: 124px;
   background-color: $white;
+  position: relative;
 }
 
 .bg-primary {

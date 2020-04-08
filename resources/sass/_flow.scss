@@ -34,6 +34,10 @@
   display: inline-block;
 }
 
+.relative {
+  position: relative;
+}
+
 @include mobile() {
   .mobile-hide {
       display: none;

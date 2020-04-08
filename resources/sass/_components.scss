@@ -93,8 +93,10 @@
 
 .profiles {
   border-radius: 6px;
+
   &__container {
     display: flex;
+    position: relative;
 
     &:nth-child(2) {
       left: -$space-2;
@@ -115,11 +117,42 @@
   &__card {
     box-shadow: -2px 2px 7px 2px rgba(0, 0, 0, 0.035);
     background-color: $white;
-    border-radius: 6px;
+    border-radius: $radius;
     padding: $space-4 $space-6;
     transition: transform .3s;
     &:hover {
       transform: translateY(-$space-3);
     }
+  }
+}
+
+.projects {
+  margin-top: 112px;
+
+  &__line {
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    left: 50%;
+    top: 196px;
+    transform: translateX(-50%);
+    background-color: $gray-100;
+  }
+
+  &__card {
+    box-shadow: 2px 2px 7px 2px rgba(0, 0, 0, 0.035);
+    background-color: $white;
+    padding: $space-5;
+    border-radius: $radius;
+  }
+
+  &__title {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-15%, -50%);
+    background-color: $white;
+    padding: $space-2;
+    z-index: 2;
   }
 }

@@ -2,7 +2,7 @@
 @section('content')
 
 <header class="col-12 flex items-center parallax">
-  <div class="col-6">
+  <div class="col-6 relative">
     <div class="overlay"></div>
     <img src="/img/prof.jpg" />
   </div>
@@ -14,11 +14,11 @@
         Wojciech Janoszek<span class="color-primary">.</span> <br>
         I create experiences<span class="color-primary">.</span>
       </h1>
-      <h3 class="inline-block mt3">
+      <h4 class="inline-block mt3">
         Web Developer, Photographer & <br>
         UI / UX Designer from Cracow, Poland. <br>
         Co-founder of Caviar Garments. <br>
-      </h3>
+      </h4>
     </div>
     <button class="btn-default mt5">CHECK PORTFOLIO</button>
   </div>
@@ -34,7 +34,7 @@
     own clothing brand called <a href="https://caviargarments.com">Caviar Garments</a>.
   </p>
 
-  <p class="col-6 mt3">Currently, I work in Scalaric, where I'm responsible for frontend development,
+  <p class="col-6 mt3">Currently, I work in <a href="https://scalaric.com">Scalaric</a>, where I'm responsible for frontend development,
     interface design and user experience in a team implementing <a href="https://taggermedia.com">Tagger</a>,
     a modern influencer marketing platform based on TypeScript, Angular & Scala.
     Moreover, I'm responsible for social media management and (photo & graphic) content creation.
@@ -48,15 +48,27 @@
   </div>
 
   <p class="col-6 mt6">My goal is to always combine client's requirements with current trends,
-    user research, and my own ideas in order to create not only a perfect, user-friendly and complete solution,
-    but also the whole experience.</p>
+    user research, and my own ideas in order to create not only a perfect, user-friendly and complete business solution,
+    but most of all, <span class="fw-bold">the whole experience</span>.</p>
 
   <button class="btn-default mt6">CONTACT ME</button>
 </section>
 
 <section class="flex flex-column items-center">
-  <h2>Portfolio<span class="color-primary">.</span></h2>
-  <hr class="divider col-1 mt4">
+  <h2>Recent Work<span class="color-primary">.</span></h2>
+  <div class="projects col-12">
+    <div class="projects__line"></div>
+
+    <div class="flex relative">
+      <div class="projects__card col-5">
+        <img src="/img/tagger-platform.png" alt="">
+      </div>
+
+      <div class="projects__title">
+        <h3>Tagger in Scalaric</h3>
+      </div>
+    </div>
+  </div>
 </section>
 
 @endsection
