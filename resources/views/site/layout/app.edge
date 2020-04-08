@@ -13,8 +13,11 @@
 
 <body>
   @include('site.layout.partials.nav')
+
   @!section('content')
 
-{{ script('/scripts/scrollingAnimations') }}
+  @include('site.layout.partials.footer')
+
+  {{ script('/scripts/scrollingAnimations') }}
 </body>
 </html>

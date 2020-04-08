@@ -83,6 +83,16 @@
   }
 }
 
+
+.footer {
+  position: relative;
+  background-color: $white;
+  padding: $space-4 $space-3;
+  display: flex;
+  justify-content: space-between;
+}
+
+
 .divider {
   background-color: $primary;
   border: none;
@@ -133,17 +143,19 @@
   &__line {
     position: absolute;
     width: 2px;
-    height: 100%;
+    height: 93%;
     left: 50%;
     top: 196px;
     transform: translateX(-50%);
     background-color: $primary;
+    z-index: 1;
   }
 
   &__container {
     display: flex;
     position: relative;
     margin-top: $space-6;
+    z-index: 2;
 
     &:nth-child(odd) {
       flex-direction: row-reverse;
@@ -170,6 +182,5 @@
     transform: translate(-15%, -50%);
     background-color: $white;
     padding: $space-2;
-    z-index: 2;
   }
 }
