@@ -127,7 +127,7 @@
 }
 
 .projects {
-  margin-top: 112px;
+  margin-top: 64px;
 
   &__line {
     position: absolute;
@@ -137,6 +137,22 @@
     top: 196px;
     transform: translateX(-50%);
     background-color: $gray-100;
+  }
+
+  &__container {
+    display: flex;
+    position: relative;
+    margin-top: $space-6;
+
+    &:nth-child(odd) {
+      flex-direction: row-reverse;
+
+      .projects__title {
+        left: auto;
+        right: 50%;
+        transform: translate(15%, -50%);
+      }
+    }
   }
 
   &__card {
