@@ -47,6 +47,7 @@
   }
 
   &__list {
+    position: relative;
     width: 50%;
     margin-left: auto;
     display: flex;
@@ -136,7 +137,7 @@
     left: 50%;
     top: 196px;
     transform: translateX(-50%);
-    background-color: $gray-100;
+    background-color: $primary;
   }
 
   &__container {

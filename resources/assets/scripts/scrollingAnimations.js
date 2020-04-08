@@ -2,17 +2,23 @@ const fadingElements = document.getElementsByClassName('fade-in');
 const nav = document.querySelector('.nav');
 const showNavEl = document.getElementById('show-nav');
 const SHOW_ON_DISTANCE_FROM_BOTTOM = 128;
+const fadingLeft = document.getElementsByClassName('fade-left');
 
-function animateElements() {
-  Array.from(fadingElements).forEach(el => {
+function detectBounding(effect, array) {
+  Array.from(array).forEach(el => {
     const bottomBounding = el.getBoundingClientRect().bottom;
 
     //Add class when the top of the element is specified distance above the bottom window border
     if (bottomBounding - el.clientHeight + SHOW_ON_DISTANCE_FROM_BOTTOM <= (window.innerHeight || document.documentElement.clientHeight)) {
-      el.classList.add('fade-in--active');
+      el.classList.add(effect);
     }
 
   });
+}
+
+function animateElements() {
+  detectBounding('fade-in--active', fadingElements);
+  detectBounding('fade-left--active', fadingLeft);
 }
 
 function showNavBackground() {

@@ -16,6 +16,21 @@
   z-index: 0;
 }
 
+.fade-left {
+  transform: translateX(86px);
+  opacity: 0;
+  transition: transform .55s ease-out, opacity .55s ease-out;
+
+  &--reversed {
+    transform: translateX(-86px);
+  }
+
+  &--active {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
 .shadow {
   box-shadow: -2px -2px 5px 1px rgba(0, 0, 0, 0.05);
 }
