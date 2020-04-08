@@ -143,7 +143,7 @@
   &__line {
     position: absolute;
     width: 2px;
-    height: 93%;
+    height: calc(100% - 132px);
     left: 50%;
     top: 196px;
     transform: translateX(-50%);
