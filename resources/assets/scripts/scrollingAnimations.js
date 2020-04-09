@@ -1,8 +1,10 @@
 const fadingElements = document.getElementsByClassName('fade-in');
+const fadingLeft = document.getElementsByClassName('fade-left');
+const fadingUp = document.getElementsByClassName('fade-up');
+
 const nav = document.querySelector('.nav');
 const showNavEl = document.getElementById('show-nav');
 const SHOW_ON_DISTANCE_FROM_BOTTOM = 128;
-const fadingLeft = document.getElementsByClassName('fade-left');
 
 function detectBounding(effect, array) {
   Array.from(array).forEach(el => {
@@ -19,6 +21,7 @@ function detectBounding(effect, array) {
 function animateElements() {
   detectBounding('fade-in--active', fadingElements);
   detectBounding('fade-left--active', fadingLeft);
+  detectBounding('fade-up--active', fadingUp);
 }
 
 function showNavBackground() {

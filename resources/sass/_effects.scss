@@ -9,6 +9,17 @@
   }
 }
 
+.fade-up {
+  transform: translateY($space-6);
+  opacity: 0;
+  transition: transform .45s ease-out, opacity .45s ease-out;
+
+  &--active {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 .parallax {
   position: sticky;
   position: -webkit-sticky;

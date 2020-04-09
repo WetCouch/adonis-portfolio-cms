@@ -173,6 +173,10 @@
     background-color: $white;
     padding: $space-5;
     border-radius: $radius;
+
+    &--active {
+
+    }
   }
 
   &__title {

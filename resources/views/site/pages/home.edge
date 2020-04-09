@@ -1,5 +1,6 @@
 @layout('site.layout.app')
 @section('content')
+@set('title', 'Wojciech Janoszek')
 
 <header class="col-12 flex items-center parallax">
   <div class="col-6 relative">
@@ -59,34 +60,47 @@
   <div class="projects col-12">
     <div class="projects__line"></div>
 
-    <div class="projects__container fade-left">
-      <div class="projects__card col-5">
+    <div class="projects__container">
+      <div class="projects__card col-5 fade-left">
         <img src="/img/tagger-platform.png" alt="">
       </div>
 
       <div class="projects__title">
-        <h3>Tagger in Scalaric</h3>
+        <h3 class="fade-up">Tagger in Scalaric</h3>
       </div>
     </div>
 
-    <div class="projects__container fade-left fade-left--reversed">
-      <div class="projects__card col-5">
-        <img src="/img/tagger-platform.png" alt="">
+
+    <div class="projects__container">
+      <div class="projects__card col-5 fade-left fade-left--reversed">
+        <img src="/img/caviar.png" alt="">
       </div>
 
       <div class="projects__title">
-        <h3>Caviar Garments</h3>
+        <h3 class="fade-up">Caviar Garments</h3>
       </div>
     </div>
 
-    <div class="projects__container fade-left">
-      <div class="projects__card col-5">
-        <img src="/img/tagger-platform.png" alt="">
+
+    <div class="projects__container">
+      <div class="projects__card col-5 fade-left">
+        <img src="/img/stasica.png" alt="">
       </div>
 
       <div class="projects__title">
-        <h3>Mateusz Stasica</h3>
+        <h3 class="fade-up">Mateusz Stasica</h3>
       </div>
+    </div>
+  </div>
+
+
+  <div class="projects__container">
+    <div class="projects__card col-5 fade-left fade-left--reversed">
+      <img src="/img/vlo.png" alt="">
+    </div>
+
+    <div class="projects__title">
+      <h3 class="fade-up">High School nr V</h3>
     </div>
   </div>
 </section>
