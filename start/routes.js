@@ -16,18 +16,24 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route');
 
+//Client-side
 Route.on('/').render('site.pages.home');
+Route.on('/portfolio').render('site.pages.portfolio');
 
+
+
+//Login
 Route.get('login', 'LoginController.showLogin');
 Route.post('login', 'LoginController.login');
-
 Route.group(() => {
   Route.on('/signup').render('admin.createUser');
   Route.post('/signup', 'LoginController.signup');
 }).middleware(['signupPermission']);
-
 Route.get('logout', 'LoginController.logout');
 
+
+
+//Administration panel
 Route.group(() => {
   Route.get('panel', 'PanelController.showPanel');
   Route.get('/panel/signupPermission', 'PanelController.changeSignupPermission');

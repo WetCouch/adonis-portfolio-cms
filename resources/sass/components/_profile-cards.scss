@@ -1,0 +1,34 @@
+.profiles {
+  border-radius: 6px;
+
+  &__container {
+    display: flex;
+    position: relative;
+
+    &:nth-child(2) {
+      left: -$space-2;
+      transition-delay: .25s;
+    }
+    &:nth-child(3) {
+      left: -$space-3;
+      transition-delay: .45s;
+
+    }
+    &:nth-child(4) {
+      left: -$space-4;
+      transition-delay: .65s;
+
+    }
+  }
+
+  &__card {
+    box-shadow: -2px 2px 7px 2px rgba(0, 0, 0, 0.035);
+    background-color: $white;
+    border-radius: $radius;
+    padding: $space-4 $space-6;
+    transition: transform .3s;
+    &:hover {
+      transform: translateY(-$space-3);
+    }
+  }
+}

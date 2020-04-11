@@ -1,0 +1,11 @@
+.btn-default {
+  background-color: $primary;
+  border: none;
+  border-radius: 20px;
+  padding: $space-2 $space-3;
+  cursor: pointer;
+  transition: transform .3s;
+  &:hover {
+    transform: scale(1.1);
+  }
+}
