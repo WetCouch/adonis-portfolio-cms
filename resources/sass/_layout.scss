@@ -21,12 +21,6 @@ section {
   position: relative;
 }
 
-.bg-primary {
-  background-color: $primary;
-}
-
-.layout-tech__icon {
-  position: absolute;
-  left: 86px;
-  top: 64px;
+.min-height {
+  min-height: calc(100vh - 64px);
 }

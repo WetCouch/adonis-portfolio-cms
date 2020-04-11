@@ -1,0 +1,12 @@
+@layout('site.layout.app')
+@section('content')
+@set('title', 'Blog')
+
+<section class="min-height flex items-center justify-center">
+  @each(post in posts, include = 'site.components.post-card')
+  @else
+    <h1>More articles will be added soon...</h1>
+  @endeach
+</section>
+
+@endsection

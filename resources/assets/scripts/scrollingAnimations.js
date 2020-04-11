@@ -19,9 +19,9 @@ function detectBounding(effect, array, distance = SHOW_ON_DISTANCE_FROM_BOTTOM) 
 }
 
 function animateElements() {
-  detectBounding('fade-in--active', fadingElements);
-  detectBounding('fade-left--active', fadingLeft);
-  detectBounding('fade-up--active', fadingUp, 32);
+  if (fadingElements) detectBounding('fade-in--active', fadingElements);
+  if (fadingLeft) detectBounding('fade-left--active', fadingLeft);
+  if (fadingUp) detectBounding('fade-up--active', fadingUp, 32);
 }
 
 function showNavBackground() {

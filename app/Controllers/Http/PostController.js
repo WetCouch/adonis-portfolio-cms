@@ -43,6 +43,16 @@ class PostController {
       return err;
     }
   }
+
+  async index ({ view }) {
+    try {
+      const posts = (await Post.all()).toJSON();
+
+      return view.render('site.pages.blog', { posts: posts })
+    } catch (err) {
+      return err;
+    }
+  }
 }
 
 module.exports = PostController;
