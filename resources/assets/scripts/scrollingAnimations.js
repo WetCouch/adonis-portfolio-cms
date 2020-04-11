@@ -6,12 +6,12 @@ const nav = document.querySelector('.nav');
 const showNavEl = document.getElementById('show-nav');
 const SHOW_ON_DISTANCE_FROM_BOTTOM = 128;
 
-function detectBounding(effect, array) {
+function detectBounding(effect, array, distance = SHOW_ON_DISTANCE_FROM_BOTTOM) {
   Array.from(array).forEach(el => {
     const bottomBounding = el.getBoundingClientRect().bottom;
 
     //Add class when the top of the element is specified distance above the bottom window border
-    if (bottomBounding - el.clientHeight + SHOW_ON_DISTANCE_FROM_BOTTOM <= (window.innerHeight || document.documentElement.clientHeight)) {
+    if (bottomBounding - el.clientHeight + distance <= (window.innerHeight || document.documentElement.clientHeight)) {
       el.classList.add(effect);
     }
 
@@ -21,7 +21,7 @@ function detectBounding(effect, array) {
 function animateElements() {
   detectBounding('fade-in--active', fadingElements);
   detectBounding('fade-left--active', fadingLeft);
-  detectBounding('fade-up--active', fadingUp);
+  detectBounding('fade-up--active', fadingUp, 32);
 }
 
 function showNavBackground() {
