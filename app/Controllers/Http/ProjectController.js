@@ -5,15 +5,8 @@ const Drive = use('Drive');
 
 class ProjectController {
   async create ({ response, request }) {
-    const { title, description, category } = request.all();
 
     try {
-      // const preview = request.file('preview', {
-      //   types: ['image'],
-      //   size: '2mb',
-      //   extnames: ['png', 'jpg', 'jpeg']
-      // });
-
       const fileUploadOpts = {
         types: ['image'],
         size: '2mb',
@@ -21,6 +14,11 @@ class ProjectController {
       };
 
       const project = new Project();
+      const body = {};
+
+      await request.multipart.field((name, value) => {
+        body[name] = value;
+      });
 
       request.multipart.file('preview', fileUploadOpts, async (file) => {
         await Drive.disk('s3').put(file.clientName, file.stream, {
@@ -29,31 +27,31 @@ class ProjectController {
         });
 
         project.preview = file.clientName;
-        console.log(project.preview);
       });
 
       await request.multipart.process();
 
-      project.title = title;
-      project.description = description;
-      project.category = category;
+      project.title = body.title;
+      project.description = body.description;
+      project.category = body.category;
       await project.save();
       response.route('/panel')
+
     } catch (err) {
       return err;
     }
   }
 
-  async showPost ({ params, view }) {
+  async view ({ params, view }) {
     try {
       const project = (await Project.find(params.id)).toJSON();
-      return view.render('admin.editPost', {post: post});
+      return view.render('admin.editProject', {project: project});
     } catch (err) {
       return err;
     }
   }
 
-  async editPost ({ params, response, request }) {
+  async edit ({ params, response, request }) {
     const { title, description, body } = request.all();
 
     try {

@@ -18,4 +18,13 @@
 </div>
 <a href="/panel/createPost">Create new post</a>
 
+<h3>Projects</h3>
+<div>
+  @each(project in projects)
+  <a href="/panel/projects/{{project.id}}"><h3>{{ project.title }}</h3></a>
+  <h4>{{ project.description }}</h4>
+  @endeach
+</div>
+<a href="/panel/createProject">Create new project</a>
+
 <a href="/logout">Logout</a>

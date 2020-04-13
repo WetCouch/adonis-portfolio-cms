@@ -11,11 +11,9 @@
 
   <label for="category">Category</label>
   <select id="category" name="category">
-    <option value="ux">UI / UX Design</option>
-    <option value="dev">Web Development</option>
-    <option value="fullstack">Fullstack</option>
-    <option value="photo">Photo / Video</option>
-    <option value="graphic">Graphic Design</option>
+    @each(category in projectCategories())
+      <option value="{{category.value}}">{{ category.desc }}</option>
+    @endeach
   </select>
 
   <input type="file" name="preview" />

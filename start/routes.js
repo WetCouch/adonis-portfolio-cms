@@ -52,4 +52,5 @@ Route.group(() => {
 
   Route.on('/panel/createProject').render('admin.createProject');
   Route.post('/panel/createProject', 'ProjectController.create');
+  Route.get('/panel/projects/:id', 'ProjectController.view');
 }).middleware(['customAuth']);
