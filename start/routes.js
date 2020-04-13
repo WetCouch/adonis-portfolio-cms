@@ -49,4 +49,7 @@ Route.group(() => {
   Route.post('/panel/createPost', 'PostController.createPost');
   Route.get('/panel/posts/:id', 'PostController.showPost');
   Route.post('/panel/posts/:id/edit', 'PostController.editPost');
+
+  Route.on('/panel/createProject').render('admin.createProject');
+  Route.post('/panel/createProject', 'ProjectController.create');
 }).middleware(['customAuth']);

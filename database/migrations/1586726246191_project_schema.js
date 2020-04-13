@@ -9,7 +9,8 @@ class ProjectSchema extends Schema {
       table.increments();
       table.string('title');
       table.text('description', 'longtext');
-      table.enu('categoty', ['ux', 'dev', 'fullstack', 'photo', 'graphic']);
+      table.enu('category', ['ux', 'dev', 'fullstack', 'photo', 'graphic']);
+      table.string('preview');
       table.timestamps();
     })
   }

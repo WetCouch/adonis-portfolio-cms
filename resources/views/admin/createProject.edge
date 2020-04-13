@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<h1>Create new project</h1>
+
+<form action="/panel/createProject" enctype="multipart/form-data" method="POST">
+  <label >Title</label>
+  <input type="text" name="title">
+
+  <label >Description</label>
+  <textarea name="description" cols="30" rows="10"></textarea>
+
+  <label for="category">Category</label>
+  <select id="category" name="category">
+    <option value="ux">UI / UX Design</option>
+    <option value="dev">Web Development</option>
+    <option value="fullstack">Fullstack</option>
+    <option value="photo">Photo / Video</option>
+    <option value="graphic">Graphic Design</option>
+  </select>
+
+  <input type="file" name="preview" />
+
+  <input type="submit">
+</form>
