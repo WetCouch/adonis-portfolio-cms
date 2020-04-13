@@ -26,7 +26,7 @@ class ProjectController {
           ACL: 'public-read'
         });
 
-        project.preview = file.clientName;
+        project.preview = Drive.disk('s3').getUrl(file.clientName);
       });
 
       await request.multipart.process();

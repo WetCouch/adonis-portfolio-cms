@@ -2,10 +2,10 @@
 
 <form action="/panel/projects/{{project.id}}/edit" method="POST">
   <label >Title</label>
-  <input type="text" name="title" value="{{project.title}}">
+  <input type="text" name="title" value="{{ project.title }}">
 
   <label >Description</label>
-  <textarea name="description" cols="30" rows="10">{{project.description}}</textarea>
+  <textarea name="description" cols="30" rows="10">{{ project.description }}</textarea>
 
   <label for="category">Category</label>
   <select id="category" name="category">
@@ -22,3 +22,5 @@
 
   <input type="submit">
 </form>
+
+<img src="{{ project.preview }}" alt="">
