@@ -1,21 +1,46 @@
 'use strict';
 
 const Post = use('App/Models/Post');
+const Drive = use('Drive');
 
 class PostController {
-  async createPost ({ response, request, auth }) {
-    const { title, description, body } = request.all();
+  async create ({ response, request, auth }) {
 
     try {
+      const fileUploadOpts = {
+        types: ['image'],
+        size: '2mb',
+        extnames: ['png', 'jpg', 'jpeg']
+      };
+
       const post = new Post();
-      post.title = title;
-      post.description = description;
-      post.body = body;
+      const body = {};
+
+      await request.multipart.field((name, value) => {
+        body[name] = value;
+      });
+
+      request.multipart.file('main_img', fileUploadOpts, async (file) => {
+        await Drive.disk('s3').put(file.clientName, file.stream, {
+          ContentType: file.headers['content-type'],
+          ACL: 'public-read'
+        });
+
+        post.main_img = Drive.disk('s3').getUrl(file.clientName);
+      });
+
+      await request.multipart.process();
+
+      post.title = body.title;
+      post.description = body.description;
+      post.body = body.body;
       post.user_id = auth.user.id;
       await post.save();
+
       response.route('/panel')
+
     } catch (err) {
-      return err;
+      console.log(err);
     }
   }
 

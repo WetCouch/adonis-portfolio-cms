@@ -46,7 +46,7 @@ Route.group(() => {
   Route.get('/panel/users/:id/delete-user', 'UserController.deleteUser');
 
   Route.on('/panel/createPost').render('admin.createPost');
-  Route.post('/panel/createPost', 'PostController.createPost');
+  Route.post('/panel/createPost', 'PostController.create');
   Route.get('/panel/posts/:id', 'PostController.showPost');
   Route.post('/panel/posts/:id/edit', 'PostController.editPost');
 

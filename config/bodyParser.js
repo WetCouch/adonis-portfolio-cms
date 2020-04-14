@@ -133,7 +133,10 @@ module.exports = {
     | is to true. Otherwise everything is processed manually.
     |
     */
-    processManually: ['/panel/createProject']
+    processManually: [
+      '/panel/createProject',
+      '/panel/createPost'
+    ]
 
     /*
     |--------------------------------------------------------------------------

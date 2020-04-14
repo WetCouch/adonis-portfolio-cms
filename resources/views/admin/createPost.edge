@@ -2,13 +2,18 @@
 
 <h1>Create new post</h1>
 
-<form action="/panel/createPost" method="POST">
+<form action="/panel/createPost" enctype="multipart/form-data" method="POST">
   <label >Title</label>
   <input type="text" name="title">
+
   <label >Description</label>
   <input type="text" name="description">
+
   <label >Body</label>
   <textarea name="body" id="test" cols="30" rows="10"></textarea>
+
+  <input type="file" name="main_img" />
+
   <input type="submit">
 </form>
 
