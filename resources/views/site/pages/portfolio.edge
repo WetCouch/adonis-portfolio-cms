@@ -2,8 +2,20 @@
 @section('content')
 @set('title', 'Portfolio')
 
-<section class="min-height flex items-center justify-center">
-  <h1>More projects will be added soon...</h1>
+<section class="min-height flex flex-column items-center justify-center">
+  <div class="project-category__container">
+    @each(category in projectCategories())
+      <div class="project-category">
+        <h5>{{ category.desc }}</h5>
+        <span class="icon icon-code"></span>
+      </div>
+    @endeach
+  </div>
+
+  @each(project in projects, include = 'site.components.project-card')
+  @else
+    <h1>More projects will be added soon...</h1>
+  @endeach
 </section>
 
 @endsection

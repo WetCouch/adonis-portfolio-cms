@@ -18,9 +18,8 @@ const Route = use('Route');
 
 //Client-side
 Route.on('/').render('site.pages.home');
-Route.on('/portfolio').render('site.pages.portfolio');
 Route.get('/blog', 'PostController.index');
-Route.get('/portfolio', 'PortfolioController.index');
+Route.get('/portfolio', 'ProjectController.index');
 
 
 
