@@ -20,6 +20,7 @@ const Route = use('Route');
 Route.on('/').render('site.pages.home');
 Route.on('/portfolio').render('site.pages.portfolio');
 Route.get('/blog', 'PostController.index');
+Route.get('/portfolio', 'PortfolioController.index');
 
 
 

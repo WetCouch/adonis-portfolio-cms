@@ -69,9 +69,9 @@ class ProjectController {
 
   async index ({ view }) {
     try {
-      const posts = (await Post.all()).toJSON();
+      const projects = (await Project.all()).toJSON();
 
-      return view.render('site.pages.blog', { posts: posts })
+      return view.render('site.pages.portfolio', { projects: projects })
     } catch (err) {
       return err;
     }
