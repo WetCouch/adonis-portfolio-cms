@@ -1,27 +1,18 @@
-const fadingElements = document.getElementsByClassName('fade-in');
-const fadingLeft = document.getElementsByClassName('fade-left');
-const fadingUp = document.getElementsByClassName('fade-up');
-
+const animatedElements = document.getElementsByClassName('animate');
 const nav = document.querySelector('.nav');
 const showNavEl = document.getElementById('show-nav');
-const SHOW_ON_DISTANCE_FROM_BOTTOM = 128;
+const SHOW_ON_DISTANCE_FROM_BOTTOM = 64;
 
-function detectBounding(effect, array, distance = SHOW_ON_DISTANCE_FROM_BOTTOM) {
-  Array.from(array).forEach(el => {
+function detectBounding() {
+  Array.from(animatedElements).forEach(el => {
     const bottomBounding = el.getBoundingClientRect().bottom;
 
     //Add class when the top of the element is specified distance above the bottom window border
-    if (bottomBounding - el.clientHeight + distance <= (window.innerHeight || document.documentElement.clientHeight)) {
-      el.classList.add(effect);
+    if (bottomBounding - el.clientHeight + SHOW_ON_DISTANCE_FROM_BOTTOM <= (window.innerHeight || document.documentElement.clientHeight)) {
+      el.classList.add('animate--active');
     }
 
   });
-}
-
-function animateElements() {
-  if (fadingElements) detectBounding('fade-in--active', fadingElements);
-  if (fadingLeft) detectBounding('fade-left--active', fadingLeft);
-  if (fadingUp) detectBounding('fade-up--active', fadingUp, 32);
 }
 
 function showNavBackground() {
@@ -39,12 +30,12 @@ document.addEventListener('scroll', () => {
   //debounce to limit the function execution on scroll event
   let waiting = false;
   if (!waiting) {
-    animateElements();
+    detectBounding();
     showNavBackground();
     waiting = true;
     setTimeout(() => waiting = false, 500)
   }
 });
 
-animateElements();
+detectBounding();
 showNavBackground();

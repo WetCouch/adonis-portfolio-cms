@@ -4,19 +4,14 @@
   box-shadow: 2px 2px 7px 2px rgba(0, 0, 0, 0.025);
   margin-right: $space-3;
   display: flex;
-  //flex-direction: column;
   align-items: center;
 
   &__container {
     display: flex;
-    //align-self: flex-end;
+    align-self: flex-start;
   }
 
   .icon {
     margin-left: $space-3;
-  }
-
-  h5 {
-    //transform: rotate(90deg);
   }
 }
