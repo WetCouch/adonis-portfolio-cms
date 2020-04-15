@@ -1,0 +1,17 @@
+@layout('site.layout.app')
+@section('content')
+@set('title', post.title)
+@set('hideFooter', 'true')
+
+<div class="blog-post">
+  <img src="{{ post.main_img }}" alt="" class="blog-post__main-img col-6">
+  <article class="blog-post__content col-6">
+    <h2 id="show-nav" class="text-center">{{ post.title }}</h2>
+    <hr class="divider col-3 mt5">
+    <div class="mt5">
+      {{{ post.body }}}
+    </div>
+  </article>
+</div>
+
+@endsection

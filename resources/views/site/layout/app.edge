@@ -16,7 +16,9 @@
 
   @!section('content')
 
-  @include('site.layout.partials.footer')
+  @if( hideFooter !== 'true')
+    @include('site.layout.partials.footer')
+  @endif
 
   {{ script('/scripts/scrollingAnimations') }}
 </body>

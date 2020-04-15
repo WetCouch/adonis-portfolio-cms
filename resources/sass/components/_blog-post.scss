@@ -1,0 +1,16 @@
+.blog-post {
+  display: flex;
+  height: 100vh;
+
+  &__main-img {
+    position: fixed;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__content {
+    margin-left: auto;
+    padding: 128px $space-5;
+  }
+}
