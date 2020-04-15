@@ -21,7 +21,7 @@
     transition: transform .55s ease-out, opacity .55s ease-out;
   }
 
-  &--active.animate {
+  &.animate--active {
     opacity: 1;
     transform: translate(0, 0);
   }
