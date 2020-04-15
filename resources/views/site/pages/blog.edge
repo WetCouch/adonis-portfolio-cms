@@ -2,8 +2,11 @@
 @section('content')
 @set('title', 'Blog')
 
-<section class="min-height flex items-center justify-center">
-  @each(post in posts, include = 'site.components.post-card')
+<section class="min-height flex flex-wrap">
+  @each(post in posts)
+    <div class="col-4">
+      @include('site.components.post-card')
+    </div>
   @else
     <h1>More articles will be added soon...</h1>
   @endeach
