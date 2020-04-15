@@ -1,1 +1,8 @@
-<h2>{{ post.title }}</h2>
+<div class="post-card">
+  <img src="{{ post.main_img }}" alt="" class="post-card__img">
+  <div class="post-card__desc">
+    <h5>{{ post.title }}</h5>
+    <hr class="divider">
+    <p class="font-p2">{{ post.description }}</p>
+  </div>
+</div>
