@@ -7,7 +7,7 @@ const Project = use('App/Models/Project');
 
 
 class PanelController {
-  async showPanel ({ view }) {
+  async show ({ view }) {
     try {
       const users = (await User.all()).toJSON();
       const posts = (await Post.all()).toJSON();
@@ -22,7 +22,7 @@ class PanelController {
       if (allowSignup.value === 'true') signupPermissionText = 'Disallow Sign Up';
       else signupPermissionText = 'Allow Sign Up';
 
-      return view.render('admin.panel', {users: users, posts: posts, projects: projects, signupPermission: signupPermissionText});
+      return view.render('admin.pages.panel', {users: users, posts: posts, projects: projects, signupPermission: signupPermissionText});
     } catch (err) {
       return err;
     }

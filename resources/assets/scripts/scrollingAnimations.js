@@ -16,13 +16,15 @@ function detectBounding() {
 }
 
 function showNavBackground() {
-  const topBounding = showNavEl.getBoundingClientRect().top;
+  if (showNavEl) {
+    const topBounding = showNavEl.getBoundingClientRect().top;
 
-  //Show navigation background if on the same Y position within window as showNavEl
-  if (topBounding - nav.clientHeight <= 0) {
-    nav.classList.add('nav--show-bg');
-  } else if (nav.classList.contains('nav--show-bg')) {
-    nav.classList.remove('nav--show-bg');
+    //Show navigation background if on the same Y position within window as showNavEl
+    if (topBounding - nav.clientHeight <= 0) {
+      nav.classList.add('nav--show-bg');
+    } else if (nav.classList.contains('nav--show-bg')) {
+      nav.classList.remove('nav--show-bg');
+    }
   }
 }
 
