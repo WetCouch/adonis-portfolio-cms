@@ -4,8 +4,8 @@ const Post = use('App/Models/Post');
 const Drive = use('Drive');
 
 class PostController {
-  async create ({ response, request, auth }) {
 
+  async post ({ params, response, request, auth }) {
     try {
       const fileUploadOpts = {
         types: ['image'],
@@ -13,20 +13,28 @@ class PostController {
         extnames: ['png', 'jpg', 'jpeg']
       };
 
-      const post = new Post();
+      let post;
       const body = {};
+
+      if (params.id >= 0) post = await Post.find(params.id);
+      else post = new Post();
 
       await request.multipart.field((name, value) => {
         body[name] = value;
       });
 
-      request.multipart.file('main_img', fileUploadOpts, async (file) => {
-        await Drive.disk('s3').put(file.clientName, file.stream, {
-          ContentType: file.headers['content-type'],
-          ACL: 'public-read'
-        });
+      await request.multipart.file('main_img', fileUploadOpts, async file => {
+        if (file) {
 
-        post.main_img = Drive.disk('s3').getUrl(file.clientName);
+          if (post.main_img) await Drive.disk('s3').delete(post.main_img);
+
+          await Drive.disk('s3').put(file.clientName, file.stream, {
+            ContentType: file.headers['content-type'],
+            ACL: 'public-read'
+          });
+
+          post.main_img = file.clientName;
+        }
       });
 
       await request.multipart.process();
@@ -44,26 +52,10 @@ class PostController {
     }
   }
 
-  async showPost ({ params, view }) {
+  async edit ({ params, view }) {
     try {
       const post = (await Post.find(params.id)).toJSON();
-      return view.render('admin.editPost', {post: post});
-    } catch (err) {
-      return err;
-    }
-  }
-
-  async editPost ({ params, response, request }) {
-    const { title, description, body } = request.all();
-
-    try {
-      const post = await Post.find(params.id);
-      post.title = title;
-      post.description = description;
-      post.body = body;
-      await post.save();
-
-      response.route('/panel')
+      return view.render('admin.pages.post', {post: post, img: Drive.disk('s3').getUrl(post.main_img)});
     } catch (err) {
       return err;
     }
@@ -79,7 +71,7 @@ class PostController {
     }
   }
 
-  async blogView ({ params, view }) {
+  async view ({ params, view }) {
     try {
       const post = (await Post.find(params.id)).toJSON();
       return view.render('site.pages.post', {post: post});

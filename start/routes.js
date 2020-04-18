@@ -19,7 +19,7 @@ const Route = use('Route');
 //Client-side
 Route.on('/').render('site.pages.home');
 Route.get('/blog', 'PostController.index');
-Route.get('/blog/:id', 'PostController.blogView');
+Route.get('/blog/:id', 'PostController.view');
 Route.get('/portfolio', 'ProjectController.index');
 
 
@@ -46,10 +46,10 @@ Route.group(() => {
   Route.post('/panel/users/:id/change-password', 'UserController.changePassword');
   Route.get('/panel/users/:id/delete-user', 'UserController.deleteUser');
 
-  Route.on('/panel/createPost').render('admin.createPost');
-  Route.post('/panel/createPost', 'PostController.create');
-  Route.get('/panel/posts/:id', 'PostController.showPost');
-  Route.post('/panel/posts/:id/edit', 'PostController.editPost');
+  Route.on('/panel/posts/create').render('admin.pages.post');
+  Route.post('/panel/posts/create', 'PostController.post');
+  Route.get('/panel/posts/:id', 'PostController.edit');
+  Route.post('/panel/posts/:id/edit', 'PostController.post');
 
   Route.on('/panel/createProject').render('admin.createProject');
   Route.post('/panel/createProject', 'ProjectController.create');
