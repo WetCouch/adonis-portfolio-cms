@@ -46,6 +46,10 @@
   position: relative;
 }
 
+.hide {
+  display: none;
+}
+
 @include mobile() {
   .mobile-hide {
       display: none;

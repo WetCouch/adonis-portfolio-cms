@@ -10,6 +10,7 @@
   color: $white;
   letter-spacing: 1px;
   transition: transform .3s;
+  text-transform: uppercase;
   &:hover {
     transform: scale(1.1);
   }

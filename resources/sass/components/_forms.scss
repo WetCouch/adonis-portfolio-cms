@@ -1,0 +1,17 @@
+.input {
+  padding: $space-2 $space-3;
+  border: 1px solid $gray-100;
+  border-radius: $radius;
+  font-size: $p2;
+}
+
+.label {
+  font-size: $p1;
+  font-weight: $fw-bold;
+}
+
+.tox-tinymce {
+  margin-top: $space-3 !important;
+  border-color: $gray-100 !important;
+  border-radius: $radius !important;
+}

@@ -150,6 +150,32 @@
 
 
 
+.pr1 {
+  padding-right: $space-1;
+}
+
+.pr2 {
+  padding-right: $space-2;
+}
+
+.pr3 {
+  padding-right: $space-3;
+}
+
+.pr4 {
+  padding-right: $space-4;
+}
+
+.pr5 {
+  padding-right: $space-5;
+}
+
+.pr6 {
+  padding-right: $space-6;
+}
+
+
+
 
 @include mobile() {
   .mobile-mt0 {

@@ -55,8 +55,12 @@ p {
   line-height: 30px;
 }
 
-a {
+a:not(.btn-default) {
   color: $primary;
+
+  &:hover {
+    color: $primary-dark;
+  }
 }
 
 .color-primary {
