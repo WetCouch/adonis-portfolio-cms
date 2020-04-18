@@ -4,34 +4,47 @@
 @set('hideFooter', 'true')
 
 <section>
-  <h1>Panel</h1>
-  <a href="/panel/signupPermission">{{ signupPermission }}</a>
+  <div class="flex space-between items-center">
+    <h1>Panel</h1>
+    <a href="/panel/signupPermission">{{ signupPermission }}</a>
+  </div>
+  <hr class="divider col-12 ml0 mt5">
 
-  <h3>Users</h3>
-  <ul>
-    @each(user in users)
-    <li><a href="/panel/users/{{user.id}}">{{ user.email }}</a></li>
-    @endeach
-  </ul>
-  <a href="/panel/createUser">Create New User</a>
+  <div class="mt6">
+    <h3>Users</h3>
+    <ul>
+      @each(user in users)
+      <li class="mt3">
+        <a href="/panel/users/{{user.id}}"><h5>{{ user.email }}</h5></a>
+      </li>
+      @endeach
+    </ul>
+    <a class="btn-default mt5 inline-block" href="/panel/createUser">Create New User</a>
+  </div>
 
-  <h3>Posts</h3>
-  <div>
+  <div class="mt6">
+    <h3>Posts</h3>
     @each(post in posts)
-    <a href="/panel/posts/{{post.id}}"><h3>{{ post.title }}</h3></a>
-    <h4>{{ post.description }}</h4>
+      <div class="flex mt4">
+        <a class="flex items-center col-3" href="/panel/posts/{{post.id}}">
+          <h5>{{ post.title }}</h5>
+        </a>
+        <p class="pl4 font-p2 col-9">{{ post.description }}</p>
+      </div>
     @endeach
+    <a class="btn-default mt5 inline-block" href="/panel/createPost">Create new post</a>
   </div>
-  <a href="/panel/createPost">Create new post</a>
 
-  <h3>Projects</h3>
-  <div>
+  <div class="mt6">
+    <h3>Projects</h3>
     @each(project in projects)
-    <a href="/panel/projects/{{project.id}}"><h3>{{ project.title }}</h3></a>
-    <h4>{{ project.description }}</h4>
+    <div class="flex mt4">
+      <a class="col-3 flex items-center" href="/panel/projects/{{project.id}}"><h5>{{ project.title }}</h5></a>
+      <p class="font-p2 pl4 col-9">{{ truncate(project.description, 100, '...') }}</p>
+    </div>
     @endeach
+    <a class="btn-default mt5 inline-block" href="/panel/createProject">Create new project</a>
   </div>
-  <a href="/panel/createProject">Create new project</a>
 </section>
 
 @endsection
