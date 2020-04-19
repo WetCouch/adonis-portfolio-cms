@@ -2,6 +2,8 @@ const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const autoprefixer = require('autoprefixer');
+const WebpackConcatPlugin = require('webpack-concat-files-plugin');
+const terser = require('terser');
 
 const extractSass = new MiniCssExtractPlugin({
   filename: 'public/app.css'
@@ -13,6 +15,21 @@ const copyFiles = new CopyWebpackPlugin([
     to:'public'
   }
 ]);
+
+const minifyJs = new WebpackConcatPlugin({
+  bundles: [
+    {
+      destination: 'public/main.min.js',
+      source: 'resources/scripts/**/*.js',
+      transforms: {
+        after: code => {
+          return terser.minify(code).code;
+        },
+      },
+    }
+  ]
+});
+
 
 function sassRules () {
   return {
@@ -48,6 +65,7 @@ module.exports = {
   },
   plugins: [
     extractSass,
-    copyFiles
+    copyFiles,
+    minifyJs
   ]
 };
