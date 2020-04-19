@@ -3,7 +3,7 @@
 @set('title', 'Portfolio')
 
 <section class="min-height flex flex-column items-center justify-center">
-  <div class="project-category__container">
+  <div id="show-nav" class="project-category__container">
     @each(category in projectCategories())
       <div class="project-category">
         <h5>{{ category.desc }}</h5>
