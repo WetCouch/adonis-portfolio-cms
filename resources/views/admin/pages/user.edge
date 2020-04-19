@@ -1,27 +1,52 @@
-<h1>User - {{ user ? user.username : 'Create' }}</h1>
+@layout('admin.layout.panel')
+@section('content')
+@set('title', user ? user.username : 'Create User')
+@set('hideFooter', 'true')
 
-<form action="{{ user ?  '/panel/users/' + user.id : url }}" method="POST">
+<section>
+  <div class="flex space-between items-center">
+    <h1>User - {{ user ? user.username : 'Create' }}</h1>
 
-  @if(user)
-    <a href="/panel/users/{{user.id}}/delete">Delete User</a>
+    @if(user)
+      <a class="btn-default" href="/panel/users/{{user.id}}/delete">Delete User</a>
+    @endif
+  </div>
+  <hr class="divider col-12 ml0 mt5">
+
+  <form class="mt6 flex flex-column items-start" action="{{ user ?  '/panel/users/' + user.id : url }}" method="POST">
+
+
+    <div class="flex mt4 col-12">
+      <div class="flex flex-column col-6 pr3">
+        <label class="label" for="email">Username</label>
+        <input class="input col-12 mt3" id="username" name="username" type="text" value="{{ user ? user.username : '' }}">
+      </div>
+
+      <div class="flex flex-column col-6 pl3">
+        <label class="label" for="email">Mail</label>
+        <input class="input col-12 mt3" id="email" name="email" type="email" value="{{ user ? user.email : '' }}">
+      </div>
+    </div>
+
+    <div class="flex mt4 col-12">
+      <div class="flex flex-column col-6 pr3">
+        <label class="label" for="password">Password</label>
+        <input class="input col-12 mt3" id="password" name="password" type="password">
+      </div>
+
+      <div class="flex flex-column col-6 pl3">
+        <label class="label" for="repeat-password">Repeat Password</label>
+        <input class="input col-12 mt3" id="repeat-password" name="repeatPassword" type="password">
+      </div>
+    </div>
+
+    <input class="btn-default self-end mt4" type="submit">
+  </form>
+
+  @if(passwordStatus)
+
+  <p>{{passwordStatus}}</p>
   @endif
+</section>
 
-  <label for="email">Username</label>
-  <input id="username" name="username" type="text" value="{{ user ? user.username : '' }}">
-
-  <label for="email">Mail</label>
-  <input id="email" name="email" type="email" value="{{ user ? user.email : '' }}">
-
-  <label for="password">Password</label>
-  <input id="password" name="password" type="password">
-
-  <label for="repeat-password">Repeat Password</label>
-  <input id="repeat-password" name="repeatPassword" type="password">
-
-  <input type="submit">
-</form>
-
-@if(passwordStatus)
-
-<p>{{passwordStatus}}</p>
-@endif
+@endsection

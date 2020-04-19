@@ -7,7 +7,7 @@ const Project = use('App/Models/Project');
 
 
 class PanelController {
-  async show ({ view }) {
+  async view ({ view }) {
     try {
       const users = (await User.all()).toJSON();
       const posts = (await Post.all()).toJSON();

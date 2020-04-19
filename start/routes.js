@@ -37,7 +37,7 @@ Route.get('logout', 'LoginController.logout');
 
 //Administration panel
 Route.group(() => {
-  Route.get('panel', 'PanelController.show');
+  Route.get('panel', 'PanelController.view');
   Route.get('/panel/signupPermission', 'PanelController.changeSignupPermission');
 
   Route.on('/panel/users/create').render('admin.pages.user');
