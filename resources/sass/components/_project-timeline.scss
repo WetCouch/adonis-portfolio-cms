@@ -10,6 +10,10 @@
     transform: translateX(-50%);
     background-color: $primary;
     z-index: 1;
+
+    @include mobile() {
+      height: calc(100% - 196px);
+    }
   }
 
   &__container {
