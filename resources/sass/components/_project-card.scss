@@ -1,8 +1,13 @@
 .project-card {
   position: relative;
-  cursor: pointer;
   align-self: flex-start;
   max-width: 50%;
+  transition: transform .4s;
+  box-shadow: 2px 2px 7px 2px rgba(0, 0, 0, 0.025);
+
+  &:hover {
+    transform: translateY(-$space-4);
+  }
 
   &:not(:first-of-type) {
     margin-top: 128px;
@@ -18,13 +23,18 @@
     }
   }
 
+  &__inner {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+  }
+
   img {
+    max-height: 50vh;
     width: 100%;
-    height: 100%;
     object-fit: cover;
     object-position: center;
     border-radius: $radius-big;
-    box-shadow: 2px 2px 7px 2px rgba(0, 0, 0, 0.0135);
   }
 
   &__title {
@@ -37,5 +47,26 @@
     padding: $space-3;
     box-shadow: 2px 2px 7px 2px rgba(0, 0, 0, 0.135);
     white-space: nowrap;
+  }
+
+  &__desc {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    padding: $space-4;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    transform: translateY(100%);
+    background-color: $white;
+    z-index: 2;
+    transition: transform .4s;
+  }
+
+  &--active {
+    .project-card__desc {
+      transform: translateY(0);
+    }
   }
 }
