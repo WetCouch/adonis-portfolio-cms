@@ -40,6 +40,7 @@ class ProjectController {
       await request.multipart.process();
 
       project.title = body.title;
+      project.project_url = body.project_url;
       project.description = body.description;
       project.category = body.category;
 

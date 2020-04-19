@@ -20,6 +20,7 @@
         <label class="label" for="title">Title</label>
         <input class="input mt3" id="title" type="text" name="title" value="{{ project ? project.title : '' }}">
       </div>
+
       <div class="col-3 pl3">
         @if(project.preview)
         <img class="radius" src="{{ getImgUrl(project.preview) }}" alt="">
@@ -31,17 +32,27 @@
       </div>
     </div>
 
-    <label class="label mt4" for="category">Category</label>
-    <div class="select__container mt3">
-      <select class="select col-12" id="category" name="category">
-        @each(category in projectCategories())
-          @if(project && project.category == category.value)
+    <div class="flex">
+      <div class="flex col-6 flex-column mt4 pr3">
+        <label class="label" for="project_url">Project URL</label>
+        <input class="input mt3" type="text" name="project_url" id="project_url" value="{{ project ? project.project_url : '' }}">
+      </div>
+
+      <div class="flex col-6 flex-column mt4 pl3">
+        <label class="label" for="category">Category</label>
+
+        <div class="select__container mt3">
+          <select class="select col-12" id="category" name="category">
+            @each(category in projectCategories())
+            @if(project && project.category == category.value)
             <option value="{{category.value}}" selected>{{ category.desc }}</option>
-          @else
+            @else
             <option value="{{category.value}}">{{ category.desc }}</option>
-          @endif
-        @endeach
-      </select>
+            @endif
+            @endeach
+          </select>
+        </div>
+      </div>
     </div>
 
     <label class="label inline-block mt4" for="description">Body</label>
