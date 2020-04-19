@@ -5,6 +5,11 @@
   background-repeat: no-repeat;
   background-position: center;
   background-image: url("/icons/dribbble.svg");
+
+  @include mobile() {
+    width: 28px;
+    height: 28px;
+  }
 }
 
 .icon-instagram {
@@ -14,6 +19,11 @@
   background-repeat: no-repeat;
   background-position: center;
   background-image: url("/icons/instagram.svg");
+
+  @include mobile() {
+    width: 28px;
+    height: 28px;
+  }
 }
 
 .icon-linkedin {
@@ -23,6 +33,11 @@
   background-repeat: no-repeat;
   background-position: center;
   background-image: url("/icons/linkedin.svg");
+
+  @include mobile() {
+    width: 28px;
+    height: 28px;
+  }
 }
 
 .icon-github {
@@ -32,6 +47,11 @@
   background-repeat: no-repeat;
   background-position: center;
   background-image: url("/icons/github.svg");
+
+  @include mobile() {
+    width: 28px;
+    height: 28px;
+  }
 }
 
 .icon-code {

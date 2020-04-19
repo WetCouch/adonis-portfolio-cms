@@ -19,8 +19,25 @@ section {
   padding: 124px;
   background-color: $white;
   position: relative;
+  z-index: 2;
+  transform: translate3d(0, 0, 0);
+
+  @include mobile() {
+    padding: $space-6 $space-4;
+  }
 }
 
 .min-height {
   min-height: calc(100vh - 64px);
+}
+
+.img-fit {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.z-index-2 {
+  z-index: 2;
 }

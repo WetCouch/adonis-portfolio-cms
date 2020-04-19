@@ -58,6 +58,11 @@
   display: none;
 }
 
+.full-height {
+  height: 100vh;
+}
+
+
 @include mobile() {
   .mobile-hide {
       display: none;
@@ -65,5 +70,21 @@
 
   .mobile-flex-column {
     flex-direction: column;
+  }
+
+  .mobile-flex-column-reverse {
+    flex-direction: column-reverse;
+  }
+
+  .mobile-full-height {
+    min-height: 100vh;
+  }
+
+  .mobile-half-height {
+    height: 50vh;
+  }
+
+  .mobile-block {
+    display: block;
   }
 }

@@ -1,5 +1,7 @@
 .profiles {
   border-radius: 6px;
+  position: relative;
+  left: $space-2;
 
   &__container {
     display: flex;
@@ -29,6 +31,10 @@
     transition: transform .3s;
     &:hover {
       transform: translateY(-$space-3);
+    }
+
+    @include mobile() {
+      padding: $space-3 $space-4;
     }
   }
 }

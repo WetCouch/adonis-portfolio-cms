@@ -21,11 +21,23 @@
     &:nth-child(odd) {
       flex-direction: row-reverse;
 
+      @include mobile() {
+        flex-direction: column;
+      }
+
       .projects__title {
         left: auto;
         right: 50%;
         transform: translate(15%, -50%);
+
+        @include mobile() {
+          transform: translate(0);
+        }
       }
+    }
+
+    @include mobile() {
+      flex-direction: column;
     }
   }
 
@@ -79,6 +91,11 @@
     transform: translateY($space-6);
     opacity: 0;
     transition: transform .3s, opacity .15s;
+
+    @include mobile() {
+      padding: $space-2 0;
+      height: auto;
+    }
   }
 
   &__title {
@@ -88,5 +105,11 @@
     transform: translate(-15%, -50%);
     background-color: $white;
     padding: $space-2;
+
+    @include mobile() {
+      position: static;
+      transform: translate(0);
+      margin-top: $space-4;
+    }
   }
 }

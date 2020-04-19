@@ -2,13 +2,13 @@
 @section('content')
 @set('title', 'Wojciech Janoszek')
 
-<header class="col-12 flex items-center parallax">
-  <div class="col-6 relative">
+<header class="col-12 flex items-center parallax mobile-flex-column-reverse">
+  <div class="col-6 relative full-height mobile-hide">
     <div class="overlay"></div>
-    <img src="/img/prof.jpg" />
+    <img class="img-fit" src="/img/prof.jpg" />
   </div>
 
-  <div class="col-6 flex flex-column items-center">
+  <div class="col-6 flex flex-column items-center justify-center mobile-col-12  mobile-p4 mobile-full-height">
     <div class="flex flex-column">
       <h1 class="inline-block animate fade-left">
         Hello, I'm <br>
@@ -25,17 +25,22 @@
   </div>
 </header>
 
+<div class="hide relative mobile-block mobile-col-12 mobile-half-height z-index-2">
+  <div class="overlay"></div>
+  <img class="img-fit" src="/img/prof.jpg" />
+</div>
+
 <section class="flex flex-column items-center shadow">
   <h2 id="show-nav">About me<span class="color-primary">.</span></h2>
-  <hr class="divider col-1 mt4">
-  <p class="col-6 mt4">I'm Wojciech Janoszek, a freelance full-stack Web Developer, Photographer
+  <hr class="divider col-1 mt4 mobile-col-4">
+  <p class="col-6 mt4 mobile-col-12">I'm Wojciech Janoszek, a freelance full-stack Web Developer, Photographer
     & Graphic Designer from Poland. I have over 2 years of experience
     in designing & building unique and minimalist websites and apps.
     Additionally, in 2018 I have successfully started
     own clothing brand called <a class="link" href="https://caviargarments.com">Caviar Garments</a>.
   </p>
 
-  <p class="col-6 mt3">Currently, I work in <a class="link" href="https://scalaric.com">Scalaric</a>, where I'm responsible for frontend development,
+  <p class="col-6 mt3 mobile-col-12">Currently, I work in <a class="link" href="https://scalaric.com">Scalaric</a>, where I'm responsible for frontend development,
     interface design and user experience in a team implementing <a class="link" href="https://taggermedia.com">Tagger</a>,
     a modern influencer marketing platform based on TypeScript, Angular & Scala.
     Moreover, I'm responsible for social media management and (photo & graphic) content creation.
@@ -48,22 +53,22 @@
     <a class="animate fade-down flex profiles__container" href="https://github.com/WetCouch" target="_blank" rel="noreferrer noopener"><div class="profiles__card"><span class="profiles__icon icon-github"></span></div></a>
   </div>
 
-  <p class="col-6 mt6">My goal is to always combine client's requirements with current trends,
+  <p class="col-6 mt6 mobile-col-12">My goal is to always combine client's requirements with current trends,
     user research, and my own ideas in order to create not only a perfect, user-friendly and complete business solution,
     but most of all, <span class="fw-bold">the whole experience</span>.
   </p>
 
-  <p class="col-6 mt4">
+  <p class="col-6 mt4 mobile-col-12">
     Keep in mind that I can make the project pop, but I won't make the logo bigger.
   </p>
 
-  <p class="col-6 mt4">I'm also a photographer with almost 3 years of experience.
+  <p class="col-6 mt4 mobile-col-12">I'm also a photographer with almost 3 years of experience.
     My main goal is to always catch and show the true feelings
     and emotions in the best way possible, while experimenting
     with the scenery and light. I am capable of doing both an
-    official photo session and some creative and fun shots. Check my <a href="https://www.instagram.com/wjanoszek/">Instagram</a> to see some of my work.</p>
+    official photo session and some creative and fun shots. Check my <a class="link" href="https://www.instagram.com/wjanoszek/">Instagram</a> to see some of my work.</p>
 
-  <p class="col-6 mt4">Want to start a project with me or set up a photo session?
+  <p class="col-6 mt4 mobile-col-12">Want to start a project with me or set up a photo session?
     Write a mail with more information and I'll reply as fast as I can.
     Can't wait to see what are you up to!</p>
 
@@ -76,7 +81,7 @@
     <div class="projects__line"></div>
 
     <div class="projects__container">
-      <div class="projects__card col-5 animate fade-left">
+      <div class="projects__card col-5 mobile-col-12 animate fade-left">
         <img src="/img/tagger-platform.png" alt="">
         <div class="projects__desc">
           <h4 class="text-center">Sometest</h4>
@@ -85,24 +90,24 @@
       </div>
 
       <div class="projects__title">
-        <h3 class="animate fade-up">Tagger in Scalaric</h3>
+        <h3 class="animate fade-up mobile-text-center">Tagger in Scalaric</h3>
       </div>
     </div>
 
 
     <div class="projects__container">
-      <div class="projects__card col-5 animate fade-right">
+      <div class="projects__card col-5 mobile-col-12 animate fade-right">
         <img src="/img/caviar.png" alt="">
       </div>
 
       <div class="projects__title">
-        <h3 class="animate fade-up">Caviar Garments</h3>
+        <h3 class="animate fade-up mobile-text-center">Caviar Garments</h3>
       </div>
     </div>
 
 
     <div class="projects__container">
-      <div class="projects__card col-5 animate fade-left">
+      <div class="projects__card col-5 mobile-col-12 animate fade-left">
         <img src="/img/stasica.png" alt="">
         <div class="projects__desc">
           <h4 class="text-center">Sometest</h4>
@@ -111,19 +116,19 @@
       </div>
 
       <div class="projects__title">
-        <h3 class="animate fade-up">Mateusz Stasica</h3>
+        <h3 class="animate fade-up mobile-text-center">Mateusz Stasica</h3>
       </div>
     </div>
   </div>
 
 
   <div class="projects__container">
-    <div class="projects__card col-5 animate fade-left fade-right">
+    <div class="projects__card col-5 mobile-col-12 animate fade-left fade-right">
       <img src="/img/vlo.png" alt="">
     </div>
 
     <div class="projects__title">
-      <h3 class="animate fade-up">High School nr V</h3>
+      <h3 class="animate fade-up mobile-text-center">High School nr V</h3>
     </div>
   </div>
 </section>
