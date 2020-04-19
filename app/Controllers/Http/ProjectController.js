@@ -62,13 +62,16 @@ class ProjectController {
     }
   }
 
-  async index ({ view }) {
+  async index ({ view, params }) {
     try {
-      const projects = (await Project.all()).toJSON();
+      let projects;
+
+      if (params.category) projects = (await Project.query().where({ category: params.category }).fetch()).toJSON();
+      else projects = (await Project.all()).toJSON();
 
       return view.render('site.pages.portfolio', { projects: projects })
     } catch (err) {
-      return err;
+      console.log(err);
     }
   }
 }

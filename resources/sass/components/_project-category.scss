@@ -5,6 +5,11 @@
   margin-right: $space-3;
   display: flex;
   align-items: center;
+  transition: transform .3s;
+
+  &:hover {
+    transform: translateY(-$space-3);
+  }
 
   &__container {
     display: flex;
