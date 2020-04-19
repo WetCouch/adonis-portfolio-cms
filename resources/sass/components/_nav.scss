@@ -30,9 +30,9 @@
   }
 
   @include mobile() {
-    transform: translate(275px, -400px);
-
+    transform: translate(465px, -415px);
     left: auto;
+    right: 0;
     height: 600px;
     width: 600px;
     background-color: $gray-100;
@@ -50,13 +50,18 @@
   }
 
   &--active {
-    transform: translate(150px, -300px);
+    transform: translate(350px, -300px);
     .icon-hamburger {
       opacity: 0;
     }
 
     .nav__list {
       opacity: 1;
+      pointer-events: auto;
+
+      a {
+        pointer-events: auto;
+      }
     }
   }
 
@@ -133,6 +138,7 @@
         text-align: right;
         color: $white;
         font-size: $p1;
+        pointer-events: none;
       }
 
       &:hover {
