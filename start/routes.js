@@ -25,7 +25,7 @@ Route.get('/portfolio', 'ProjectController.index');
 
 
 //Login
-Route.get('login', 'LoginController.showLogin');
+Route.get('login', 'LoginController.view');
 Route.post('login', 'LoginController.login');
 Route.group(() => {
   Route.on('/signup').render('admin.pages.user');
@@ -51,7 +51,8 @@ Route.group(() => {
   Route.get('/panel/posts/:id', 'PostController.edit');
   Route.post('/panel/posts/:id/edit', 'PostController.post');
 
-  Route.on('/panel/createProject').render('admin.createProject');
-  Route.post('/panel/createProject', 'ProjectController.create');
+  Route.on('/panel/projects/create').render('admin.pages.project');
+  Route.post('/panel/projects/create', 'ProjectController.post');
   Route.get('/panel/projects/:id', 'ProjectController.view');
+  Route.post('/panel/projects/:id/edit', 'ProjectController.post');
 }).middleware(['customAuth']);

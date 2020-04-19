@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<form action="{{ project ? '/panel/projects/' + project.id + '/edit' : '/panel/projects/create' }}" enctype="multipart/form-data" method="POST">
+  <label>Title</label>
+  <input type="text" name="title" value="{{ project ? project.title : '' }}">
+
+  <label >Description</label>
+  <textarea name="description" cols="30" rows="10">{{ project ? project.description : '' }}</textarea>
+
+  <label for="category">Category</label>
+  <select id="category" name="category">
+    @each(category in projectCategories())
+      @if(project && project.category == category.value)
+        <option value="{{category.value}}" selected>{{ category.desc }}</option>
+      @else
+        <option value="{{category.value}}">{{ category.desc }}</option>
+      @endif
+    @endeach
+  </select>
+
+  <input type="file" name="preview" />
+
+  <input type="submit">
+</form>
+
+@if(project && project.preview)
+<img src="{{ getImgUrl(project.preview) }}" alt="">
+@endif

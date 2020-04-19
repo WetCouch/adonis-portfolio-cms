@@ -134,7 +134,8 @@ module.exports = {
     |
     */
     processManually: [
-      '/panel/createProject',
+      '/panel/projects/create',
+      '/panel/projects/:id/edit',
       '/panel/posts/create',
       '/panel/posts/:id/edit'
     ]

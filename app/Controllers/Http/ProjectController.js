@@ -4,8 +4,8 @@ const Project = use('App/Models/Project');
 const Drive = use('Drive');
 
 class ProjectController {
-  async create ({ response, request }) {
 
+  async post ({ params, response, request }) {
     try {
       const fileUploadOpts = {
         types: ['image'],
@@ -13,20 +13,28 @@ class ProjectController {
         extnames: ['png', 'jpg', 'jpeg']
       };
 
-      const project = new Project();
+      let project;
       const body = {};
+
+      if (params.id >= 0) project = await Project.find(params.id);
+      else project = new Project();
 
       await request.multipart.field((name, value) => {
         body[name] = value;
       });
 
-      request.multipart.file('preview', fileUploadOpts, async (file) => {
-        await Drive.disk('s3').put(file.clientName, file.stream, {
-          ContentType: file.headers['content-type'],
-          ACL: 'public-read'
-        });
+      await request.multipart.file('preview', fileUploadOpts, async file => {
+        if (file) {
 
-        project.preview = Drive.disk('s3').getUrl(file.clientName);
+          if (project.preview) await Drive.disk('s3').delete(project.preview);
+
+          await Drive.disk('s3').put(file.clientName, file.stream, {
+            ContentType: file.headers['content-type'],
+            ACL: 'public-read'
+          });
+
+          project.preview = file.clientName;
+        }
       });
 
       await request.multipart.process();
@@ -34,34 +42,20 @@ class ProjectController {
       project.title = body.title;
       project.description = body.description;
       project.category = body.category;
+
       await project.save();
-      response.route('/panel')
+
+      response.route('/panel/projects/' + project.id)
 
     } catch (err) {
-      return err;
+      console.log(err);
     }
   }
 
   async view ({ params, view }) {
     try {
       const project = (await Project.find(params.id)).toJSON();
-      return view.render('admin.editProject', {project: project});
-    } catch (err) {
-      return err;
-    }
-  }
-
-  async edit ({ params, response, request }) {
-    const { title, description, body } = request.all();
-
-    try {
-      const post = await Post.find(params.id);
-      post.title = title;
-      post.description = description;
-      post.body = body;
-      await post.save();
-
-      response.route('/panel')
+      return view.render('admin.pages.project', {project: project});
     } catch (err) {
       return err;
     }

@@ -19,7 +19,7 @@ class LoginController {
     response.redirect('login');
   }
 
-  async showLogin ({ auth, view, response }) {
+  async view ({ auth, view, response }) {
     try {
       await auth.check();
       response.redirect('panel');
