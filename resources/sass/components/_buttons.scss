@@ -13,5 +13,6 @@
   text-transform: uppercase;
   &:hover {
     transform: scale(1.1);
+    color: $white;
   }
 }
