@@ -65,11 +65,14 @@ class ProjectController {
   async index ({ view, params }) {
     try {
       let projects;
+      let selectedCategory = 'all';
 
-      if (params.category) projects = (await Project.query().where({ category: params.category }).fetch()).toJSON();
-      else projects = (await Project.all()).toJSON();
+      if (params.category) {
+        projects = (await Project.query().where({ category: params.category }).fetch()).toJSON();
+        selectedCategory = params.category.toString();
+      } else projects = (await Project.all()).toJSON();
 
-      return view.render('site.pages.portfolio', { projects: projects })
+      return view.render('site.pages.portfolio', { projects: projects, selectedCategory: selectedCategory })
     } catch (err) {
       console.log(err);
     }

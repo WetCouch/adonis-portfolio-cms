@@ -5,14 +5,14 @@
 <section class="min-height flex flex-column items-center justify-center">
   <div id="show-nav" class="project-category__container">
     <a href="/portfolio">
-      <div class="project-category">
+      <div class="project-category {{ selectedCategory == 'all' ? 'project-category--active' : '' }}">
         <h5 class="gray-100">All</h5>
         <span class="icon icon-code"></span>
       </div>
     </a>
     @each(category in projectCategories())
       <a href="/portfolio/{{ category.value }}">
-        <div class="project-category">
+        <div class="project-category {{ selectedCategory == category.value ? 'project-category--active' : '' }}">
           <h5 class="gray-100">{{ category.desc }}</h5>
           <span class="icon icon-code"></span>
         </div>
