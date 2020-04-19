@@ -1,6 +1,6 @@
 <a href="/blog/{{ post.id }}" class="gray-100">
   <div class="post-card">
-    <img src="{{ post.main_img }}" alt="" class="post-card__img">
+    <img src="{{ getImgUrl(post.main_img) }}" alt="" class="post-card__img">
     <div class="post-card__desc">
       <h5>{{ post.title }}</h5>
       <hr class="divider">
