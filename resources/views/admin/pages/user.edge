@@ -5,7 +5,14 @@
 
 <section>
   <div class="flex space-between items-center">
-    <h1>User - {{ user ? user.username : 'Create' }}</h1>
+    <h1>
+      {{ user ? 'Edit User' : 'Create User' }}
+      @if(user)
+      <span class="fw-normal ml2">
+        - {{ user.username }}
+      </span>
+      @endif
+    </h1>
 
     @if(user)
       <a class="btn-default" href="/panel/users/{{user.id}}/delete">Delete User</a>

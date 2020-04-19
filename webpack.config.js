@@ -1,6 +1,7 @@
 const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const autoprefixer = require('autoprefixer');
 
 const extractSass = new MiniCssExtractPlugin({
   filename: 'public/app.css'
@@ -20,6 +21,12 @@ function sassRules () {
       use: [
         MiniCssExtractPlugin.loader,
         'css-loader',
+        {
+          loader: 'postcss-loader',
+          options: {
+            plugins: () => [autoprefixer()]
+          }
+        },
         'sass-loader'
       ],
     }

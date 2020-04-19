@@ -1,28 +1,55 @@
-<!DOCTYPE html>
+@layout('admin.layout.panel')
+@section('content')
+@set('title', project ? project.title : 'Create Project')
+@set('hideFooter', 'true')
 
-<form action="{{ project ? '/panel/projects/' + project.id + '/edit' : '/panel/projects/create' }}" enctype="multipart/form-data" method="POST">
-  <label>Title</label>
-  <input type="text" name="title" value="{{ project ? project.title : '' }}">
+<section>
+  <h1>
+    {{ project ? 'Edit Project' : 'Create Project' }}
+    @if(project)
+      <span class="fw-normal ml2">
+        - {{ project.title }}
+      </span>
+    @endif
+  </h1>
+  <hr class="divider col-12 ml0 mt5">
 
-  <label >Description</label>
-  <textarea name="description" cols="30" rows="10">{{ project ? project.description : '' }}</textarea>
+  <form class="mt6 flex flex-column" action="{{ project ? '/panel/projects/' + project.id + '/edit' : '/panel/projects/create' }}" enctype="multipart/form-data" method="POST">
+  <div class="flex items-end">
+      <div class="flex flex-column col-9 pr3">
+        <label class="label" for="title">Title</label>
+        <input class="input mt3" id="title" type="text" name="title" value="{{ project ? project.title : '' }}">
+      </div>
+      <div class="col-3 pl3">
+        @if(project.preview)
+        <img class="radius" src="{{ getImgUrl(project.preview) }}" alt="">
+        @endif
+        <label class="btn-default flex justify-center mt2 col-12">
+          upload image
+          <input class="hide" style="" type="file" name="preview" />
+        </label>
+      </div>
+    </div>
 
-  <label for="category">Category</label>
-  <select id="category" name="category">
-    @each(category in projectCategories())
-      @if(project && project.category == category.value)
-        <option value="{{category.value}}" selected>{{ category.desc }}</option>
-      @else
-        <option value="{{category.value}}">{{ category.desc }}</option>
-      @endif
-    @endeach
-  </select>
+    <label class="label mt4" for="category">Category</label>
+    <div class="select__container mt3">
+      <select class="select col-12" id="category" name="category">
+        @each(category in projectCategories())
+          @if(project && project.category == category.value)
+            <option value="{{category.value}}" selected>{{ category.desc }}</option>
+          @else
+            <option value="{{category.value}}">{{ category.desc }}</option>
+          @endif
+        @endeach
+      </select>
+    </div>
 
-  <input type="file" name="preview" />
+    <label class="label inline-block mt4" for="description">Body</label>
+    <textarea class="input mt3 col-12" name="description" id="description" rows="20">{{project ? project.description : ''}}</textarea>
 
-  <input type="submit">
-</form>
+    <input class="btn-default self-end mt4" type="submit" value="SAVE PROJECT">
+  </form>
 
-@if(project && project.preview)
-<img src="{{ getImgUrl(project.preview) }}" alt="">
-@endif
+</section>
+
+@endsection

@@ -1,4 +1,4 @@
-.input {
+.input, .select {
   padding: $space-2 $space-3;
   border: 1px solid $gray-100;
   border-radius: $radius;
@@ -14,4 +14,26 @@
   margin-top: $space-3 !important;
   border-color: $gray-100 !important;
   border-radius: $radius !important;
+}
+
+.select {
+  appearance: none;
+  background-color: $white;
+
+  &__container {
+    position: relative;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      transform: translateY(-75%) rotate(45deg);
+      right: $space-3;
+      width: $space-2;
+      height: $space-2;
+      border-right: 2px solid $gray-100;
+      border-bottom: 2px solid $gray-100;
+      z-index: 2;
+    }
+  }
 }

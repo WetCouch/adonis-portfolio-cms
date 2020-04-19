@@ -83,6 +83,10 @@ a:not(.btn-default) {
   font-weight: $fw-bold;
 }
 
+.fw-normal {
+  font-weight: $fw-normal;
+}
+
 @include mobile() {
   .mobile-text-center {
     text-align: center;
