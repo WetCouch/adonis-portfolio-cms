@@ -5,6 +5,61 @@
   top: 0;
   z-index: 10;
 
+  &__overlay {
+    @include mobile() {
+      opacity: 0;
+      max-height: 0;
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba($primary, .5);
+      box-shadow: none;
+      z-index: 5;
+      transition: opacity .25s, max-height 0s .25s;
+    }
+
+    &--active {
+      @include mobile() {
+        opacity: 1;
+        max-height: 1000px;
+        transition: opacity .25s;
+      }
+    }
+  }
+
+  @include mobile() {
+    transform: translate(275px, -400px);
+
+    left: auto;
+    height: 600px;
+    width: 600px;
+    background-color: $gray-100;
+    border-radius: 50%;
+    box-shadow: -2px -2px 5px 1px rgba(0, 0, 0, 0.05);
+    transition: transform .35s;
+
+    .icon-hamburger {
+      position: absolute;
+      z-index: 2;
+      bottom: 132px;
+      left: 84px;
+      transition: opacity .25s;
+    }
+  }
+
+  &--active {
+    transform: translate(150px, -300px);
+    .icon-hamburger {
+      opacity: 0;
+    }
+
+    .nav__list {
+      opacity: 1;
+    }
+  }
+
   &__background {
     position: absolute;
     background-color: $white;
@@ -16,6 +71,10 @@
     transform: translateY(-100px);
     z-index: 1;
     transition: transform .4s;
+
+    @include mobile() {
+      display: none;
+    }
   }
 
   &--show-bg {
@@ -40,6 +99,15 @@
         color: $gray-60;
       }
     }
+
+    @include mobile() {
+      flex-direction: column;
+      margin-top: 50%;
+      margin-left: 0;
+      width: 40%;
+      opacity: 0;
+      transition: opacity .25s;
+    }
   }
 
   &__link {
@@ -49,13 +117,30 @@
       border-right: 1px solid $gray-100;
     }
 
+    @include mobile() {
+      border: none;
+      margin-top: $space-3;
+    }
+
     a {
       color: $gray-100;
       transition: color .2s;
       pointer-events: auto;
 
+      @include mobile() {
+        display: inline-block;
+        width: 100%;
+        text-align: right;
+        color: $white;
+        font-size: $p1;
+      }
+
       &:hover {
         color: $gray-100;
+
+        @include mobile() {
+          color: $white;
+        }
       }
     }
   }

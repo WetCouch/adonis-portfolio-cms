@@ -81,6 +81,16 @@
   background-image: url("/icons/bulb.svg");
 }
 
+.icon-hamburger {
+  display: block;
+  width: 32px;
+  height: 32px;
+  background-color: $white;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-image: url("/icons/hamburger-menu-icon.svg");
+}
+
 
 //.icon-arrow-top {
 //  display: inline-block;
