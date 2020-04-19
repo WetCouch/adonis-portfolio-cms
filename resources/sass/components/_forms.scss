@@ -3,6 +3,15 @@
   border: 1px solid $gray-100;
   border-radius: $radius;
   font-size: $p2;
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus {
+    -webkit-box-shadow: none;
+    background-color: $white;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+
 }
 
 .label {

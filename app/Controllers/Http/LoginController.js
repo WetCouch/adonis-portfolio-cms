@@ -29,7 +29,7 @@ class LoginController {
         { key: 'allow_signup', value: 'true' }
       )).toJSON();
 
-      return view.render('admin.login', {allowSignup: allowSignup.value});
+      return view.render('admin.pages.login', {allowSignup: allowSignup.value});
     }
   }
 

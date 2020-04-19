@@ -1,0 +1,32 @@
+@layout('admin.layout.panel')
+@section('content')
+@set('title', 'Sign In')
+
+<section class="flex justify-center">
+
+  <div class="flex flex-column items-center col-3">
+    <h1 class="self-start">Login</h1>
+    <hr class="divider col-12 ml0 mt5">
+
+    <form class="flex flex-column col-12" action="/login" method="POST">
+
+      <label class="label mt4" for="email">Mail</label>
+      <input class="input mt3" id="email" name="email" type="email">
+
+      <label class="label mt4" for="password">Password</label>
+      <input class="input mt3" id="password" name="password" type="password">
+
+      <div class="flex space-between items-center mt4">
+        @if(allowSignup === 'true')
+          <a href="/signup">Sign Up</a>
+        @endif
+
+        <input class="btn-default" type="submit" value="Sign In">
+      </div>
+    </form>
+
+  </div>
+
+</section>
+
+@endsection
