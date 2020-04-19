@@ -55,7 +55,7 @@ class PostController {
   async edit ({ params, view }) {
     try {
       const post = (await Post.find(params.id)).toJSON();
-      return view.render('admin.pages.post', {post: post, img: Drive.disk('s3').getUrl(post.main_img)});
+      return view.render('admin.pages.post', {post: post});
     } catch (err) {
       return err;
     }

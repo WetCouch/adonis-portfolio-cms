@@ -28,8 +28,8 @@ Route.get('/portfolio', 'ProjectController.index');
 Route.get('login', 'LoginController.showLogin');
 Route.post('login', 'LoginController.login');
 Route.group(() => {
-  Route.on('/signup').render('admin.createUser');
-  Route.post('/signup', 'LoginController.signup');
+  Route.on('/signup').render('admin.pages.user');
+  Route.post('/signup', 'UserController.post');
 }).middleware(['signupPermission']);
 Route.get('logout', 'LoginController.logout');
 
@@ -39,12 +39,12 @@ Route.get('logout', 'LoginController.logout');
 Route.group(() => {
   Route.get('panel', 'PanelController.show');
   Route.get('/panel/signupPermission', 'PanelController.changeSignupPermission');
-  Route.on('/panel/createUser').render('admin.createUser');
-  Route.post('/panel/createUser', 'LoginController.signup');
 
-  Route.get('/panel/users/:id', 'UserController.showUser');
-  Route.post('/panel/users/:id/change-password', 'UserController.changePassword');
-  Route.get('/panel/users/:id/delete-user', 'UserController.deleteUser');
+  Route.on('/panel/users/create').render('admin.pages.user');
+  Route.post('/panel/users/create', 'UserController.post');
+  Route.get('/panel/users/:id', 'UserController.edit');
+  Route.post('/panel/users/:id', 'UserController.post');
+  Route.get('/panel/users/:id/delete', 'UserController.delete');
 
   Route.on('/panel/posts/create').render('admin.pages.post');
   Route.post('/panel/posts/create', 'PostController.post');

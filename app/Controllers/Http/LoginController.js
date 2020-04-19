@@ -33,21 +33,7 @@ class LoginController {
     }
   }
 
-  async signup ({ request, response, view }) {
-    const { username, email, password, repeatPassword } = request.all();
-    const user = new User();
-    try {
-      if (password === repeatPassword) {
-        user.username = username;
-        user.email = email;
-        user.password = password;
-        await user.save();
-        response.route('/panel');
-      } else return view.render('admin.createUser', {passwordStatus: 'Passwords do not match'});
-    } catch (err) {
-      return err;
-    }
-  }
+
 }
 
 module.exports = LoginController;

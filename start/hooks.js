@@ -2,8 +2,9 @@ const { hooks } = require('@adonisjs/ignitor');
 
 hooks.after.providersRegistered(() => {
   const View = use('View');
+  const Drive = use('Drive');
 
-  View.global('projectCategories', function () {
+  View.global('projectCategories', () => {
     return [
       {
         value: 'ux',
@@ -26,5 +27,9 @@ hooks.after.providersRegistered(() => {
         desc: 'Graphic Design'
       }
     ]
+  });
+
+  View.global('getImgUrl', img => {
+    return Drive.disk('s3').getUrl(img);
   })
 });

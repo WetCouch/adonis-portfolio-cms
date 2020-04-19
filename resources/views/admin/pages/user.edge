@@ -1,0 +1,27 @@
+<h1>User - {{ user ? user.username : 'Create' }}</h1>
+
+<form action="{{ user ?  '/panel/users/' + user.id : url }}" method="POST">
+
+  @if(user)
+    <a href="/panel/users/{{user.id}}/delete">Delete User</a>
+  @endif
+
+  <label for="email">Username</label>
+  <input id="username" name="username" type="text" value="{{ user ? user.username : '' }}">
+
+  <label for="email">Mail</label>
+  <input id="email" name="email" type="email" value="{{ user ? user.email : '' }}">
+
+  <label for="password">Password</label>
+  <input id="password" name="password" type="password">
+
+  <label for="repeat-password">Repeat Password</label>
+  <input id="repeat-password" name="repeatPassword" type="password">
+
+  <input type="submit">
+</form>
+
+@if(passwordStatus)
+
+<p>{{passwordStatus}}</p>
+@endif

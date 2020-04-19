@@ -14,8 +14,8 @@
         <input class="input mt3" id="title" type="text" name="title" value="{{post ? post.title : ''}}">
       </div>
       <div class="col-3 pl3">
-        @if(post)
-          <img class="radius" src="{{img}}" alt="">
+        @if(post.main_img)
+          <img class="radius" src="{{ getImgUrl(post.main_img) }}" alt="">
         @endif
         <label class="btn-default flex justify-center mt2 col-12">
           upload image
