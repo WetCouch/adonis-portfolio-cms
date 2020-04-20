@@ -40,6 +40,20 @@
     box-shadow: -2px -2px 5px 1px rgba(0, 0, 0, 0.05);
     transition: transform .35s;
 
+    &:before {
+      content: '';
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background-color: rgba($gray-100, 1);
+      position: absolute;
+      opacity: 1;
+      transform: scale(0);
+      transition: none;
+    }
+
     .icon-hamburger {
       position: absolute;
       z-index: 2;
@@ -53,6 +67,13 @@
     transform: translate(350px, -300px);
     .icon-hamburger {
       opacity: 0;
+    }
+
+    &:before {
+      opacity: 0;
+      transform: scale(2);
+      left: 999999px;
+      transition: opacity .25s, transform .25s, left 0s .25s;
     }
 
     .nav__list {
