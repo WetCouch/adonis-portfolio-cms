@@ -5,6 +5,11 @@
   transition: transform .4s;
   box-shadow: 2px 2px 7px 2px rgba(0, 0, 0, 0.025);
 
+  @include mobile() {
+    max-width: 100%;
+    min-height: 420px;
+  }
+
   &:hover {
     transform: translateY(-$space-4);
   }
@@ -20,6 +25,12 @@
       left: auto;
       right: 100%;
       transform: translate(50%, -50%);
+
+      @include mobile() {
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
     }
   }
 
@@ -27,6 +38,10 @@
     position: relative;
     cursor: pointer;
     overflow: hidden;
+
+    @include mobile() {
+      min-height: 420px;
+    }
   }
 
   img {
@@ -35,6 +50,10 @@
     object-fit: cover;
     object-position: center;
     border-radius: $radius-big;
+
+    @include mobile() {
+      min-height: 420px;
+    }
   }
 
   &__title {
@@ -47,6 +66,17 @@
     padding: $space-3;
     box-shadow: 2px 2px 7px 2px rgba(0, 0, 0, 0.135);
     white-space: nowrap;
+
+    @include mobile() {
+      top: auto;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      font-size: 24px;
+      white-space: unset;
+      box-shadow: none;
+    }
   }
 
   &__desc {
