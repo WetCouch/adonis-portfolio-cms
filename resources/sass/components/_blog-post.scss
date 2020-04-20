@@ -2,15 +2,35 @@
   display: flex;
   height: 100vh;
 
+  @include mobile() {
+    flex-direction: column;
+    overflow-y: scroll;
+  }
+
   &__main-img {
     position: fixed;
     height: 100%;
     object-fit: cover;
     object-position: center;
+
+    @include mobile() {
+      position: sticky;
+      position: -webkit-sticky;
+      top: 0;
+    }
   }
 
   &__content {
     margin-left: auto;
     padding: 128px $space-5;
+
+    @include mobile() {
+      margin-left: 0;
+      background-color: $white;
+      border-radius: 24px;
+      position: relative;
+      padding: $space-5;
+      margin-top: -20vh;
+    }
   }
 }
