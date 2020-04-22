@@ -4,7 +4,11 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name=viewport content="width=device-width, initial-scale=1">
-  <meta name="description" content="A personal blog & portfolio of Wojciech Janoszek, a graphic and UI / UX designer, web developer and photographer that belives that it all comes down to the experience and being unique.">
+  @if(description)
+    <meta name="description" content="{{ description }}">
+  @else
+    <meta name="description" content="A personal blog & portfolio of Wojciech Janoszek, a graphic and UI / UX designer, web developer and photographer that belives that it all comes down to the experience and being unique.">
+  @endif
 
   <title>{{ title }}</title>
 
