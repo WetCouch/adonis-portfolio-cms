@@ -171,4 +171,12 @@
       }
     }
   }
+
+  &__hamburger {
+    display: none;
+
+    @include mobile() {
+      display: block;
+    }
+  }
 }
