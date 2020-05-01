@@ -38,7 +38,7 @@
     background-color: $gray-100;
     border-radius: 50%;
     box-shadow: -2px -2px 5px 1px rgba(0, 0, 0, 0.05);
-    transition: transform .35s;
+    transition: transform 0.5s cubic-bezier(0.42, 0.77, 0.36, 1.33);
 
     &:before {
       content: '';
@@ -49,7 +49,7 @@
       border-radius: 50%;
       background-color: rgba($gray-100, .8);
       position: absolute;
-      opacity: 1;
+      opacity: 0.7;
       transform: scale(0);
       transition: none;
     }
@@ -71,9 +71,9 @@
 
     &:before {
       opacity: 0;
-      transform: scale(1.8);
+      transform: scale(1.55);
       left: 999999px;
-      transition: opacity .25s, transform .25s, left 0s .25s;
+      transition: opacity .4s, transform .4s, left 0s .4s;
     }
 
     .nav__list {
