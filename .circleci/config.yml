@@ -10,7 +10,7 @@ jobs:
       - node/with-cache:
           steps:
             - run: npm install
-            - run: npm i @adonisjs/cli
+            - run: sudo npm i -g @adonisjs/cli
             - run: adonis migration:run
             - run: npm run build
             - run: npm run start
