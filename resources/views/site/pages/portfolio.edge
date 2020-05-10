@@ -3,7 +3,7 @@
 @set('title', 'Portfolio')
 
 <section class="min-height flex flex-column items-center justify-center">
-  <div id="show-nav" class="project-category__container">
+  <div id="show-nav" class="project-category__container mb-auto">
     <a href="/portfolio">
       <div class="project-category {{ selectedCategory == 'all' ? 'project-category--active' : '' }}">
         <h5 class="gray-100">All</h5>
@@ -22,7 +22,7 @@
 
   @each(project in projects, include = 'site.components.project-card')
   @else
-    <h1>More projects will be added soon...</h1>
+    <h1 class="mb-auto">More projects will be added soon...</h1>
   @endeach
 </section>
 
