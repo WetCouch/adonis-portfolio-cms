@@ -28,7 +28,7 @@ module.exports = {
     |
     */
     directives: {
-      scriptSrc: ['self', '@nonce', 'cdnjs.cloudflare.com']
+      scriptSrc: ['self', '@nonce', 'cdnjs.cloudflare.com', 'www.googletagmanager.com']
     },
     /*
     |--------------------------------------------------------------------------
